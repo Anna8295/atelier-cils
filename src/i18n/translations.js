@@ -40,8 +40,8 @@ export const translations = {
       titleA: 'Pick your set. ',
       titleEm: 'Prices included.',
       lede: 'Every full set includes a consultation, a lash map drawn for your eye shape, and a free check-up within 72 hours if anything feels off.',
-      book: 'Book this',
-      min: 'MIN',
+      book: 'Book',
+      popular: 'Most booked',
       items: {
         classic: { kicker: 'Extensions', name: 'Classic', desc: 'One extension on each natural lash. Looks like mascara, without the mascara.' },
         hybrid: { kicker: 'Most booked', name: 'Hybrid', desc: 'Classic lashes mixed with light fans. Textured and fuller, still soft.' },

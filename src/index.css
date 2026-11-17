@@ -118,28 +118,40 @@ p{margin:0}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* SERVICES — appointment cards */
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-@media (max-width:980px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){.cards{grid-template-columns:1fr}}
-.appt{display:grid;grid-template-rows:1fr auto;background:var(--surface);border-radius:var(--radius);border:1px solid var(--line);position:relative;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
-.appt:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 24px 48px -28px color-mix(in srgb,var(--accent) 60%,transparent)}
-.appt-top{padding:24px 24px 20px;display:grid;gap:12px;align-content:start}
-.appt-top .kicker{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-.appt h3{font-size:2rem}
-.appt p{color:var(--muted);font-size:.95rem}
-.appt .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.appt .tags span{font-family:var(--f-mono);font-size:.7rem;padding:4px 9px;border-radius:999px;background:var(--soft);color:var(--ink)}
-.stub{position:relative;border-top:2px dashed var(--line);padding:18px 24px 22px;display:flex;align-items:end;justify-content:space-between;gap:12px}
-.stub::before,.stub::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
-.stub::before{left:-12px;clip-path:inset(0 0 0 50%)}.stub::after{right:-12px;clip-path:inset(0 50% 0 0)}
-.price{font-family:var(--f-display);font-size:2.1rem;line-height:1}
-.price small{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);display:block;margin-bottom:6px;letter-spacing:.08em}
-.stub .btn{padding:10px 15px;font-size:.82rem}
-.appt.featured{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.appt.featured p,.appt.featured .kicker,.appt.featured .price small{color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
-.appt.featured .tags span{background:color-mix(in srgb,var(--bg) 14%,var(--ink));color:var(--bg)}
-.appt.featured .stub{border-color:color-mix(in srgb,var(--bg) 25%,var(--ink))}
-.appt.featured .btn{--b:var(--accent);color:var(--on-accent)}
+/* SERVICES — price list with a floating photo */
+.menu{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.menu-row{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) 84px 130px 46px;grid-template-areas:"name desc time price go";align-items:center;gap:28px;padding:28px 14px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+.menu-row::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--surface);transform:scaleY(0);transform-origin:bottom;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.menu-row:hover::before,.menu-row:focus-visible::before{transform:scaleY(1)}
+.menu-thumb{display:none}
+.menu-name{grid-area:name;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-family:var(--f-display);font-size:clamp(1.7rem,3vw,2.6rem);line-height:1;letter-spacing:-.01em;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.menu-row:hover .menu-name{transform:translateX(10px)}
+.pill{font:500 .6rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:6px 9px;border-radius:999px}
+.menu-desc{grid-area:desc;display:grid;gap:6px;min-width:0}
+.menu-desc .d{color:var(--muted);font-size:.95rem;max-width:44ch}
+.menu-desc .spec{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.04em;color:var(--muted)}
+.m-only{display:none}
+.menu-time{grid-area:time;font-family:var(--f-mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.menu-price{grid-area:price;font-family:var(--f-display);font-size:clamp(1.5rem,2.4vw,2rem);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.menu-go{grid-area:go;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .35s,color .35s,border-color .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.menu-go svg{width:18px;height:18px}
+.menu-row:hover .menu-go{background:var(--accent);border-color:var(--accent);color:var(--on-accent);transform:rotate(-45deg)}
+.menu-float{position:fixed;left:0;top:0;z-index:40;width:clamp(200px,17vw,260px);aspect-ratio:3/4;border-radius:18px;overflow:hidden;pointer-events:none;background:#e7c6b3;box-shadow:0 30px 60px -30px rgba(31,21,25,.45);opacity:0;scale:.85;transition:opacity .3s ease,scale .45s cubic-bezier(.2,.8,.2,1)}
+.menu-float.on{opacity:1;scale:1}
+.menu-float img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 47%;transform:scale(1.35);transform-origin:50% 47%;opacity:0;transition:opacity .35s ease}
+.menu-float img.on{opacity:1}
+@media (hover:none),(pointer:coarse){.menu-float{display:none}}
+@media (max-width:1000px){.menu-row{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) 120px 46px;grid-template-areas:"name desc price go"}.menu-time{display:none}.m-only{display:inline}}
+@media (max-width:700px){
+  .menu-row{grid-template-columns:64px minmax(0,1fr) auto;grid-template-areas:"thumb name price" "thumb desc desc";gap:8px 14px;padding:18px 4px;align-items:start}
+  .menu-thumb{grid-area:thumb;display:grid;place-items:center;width:64px;height:80px;border-radius:12px;overflow:hidden;background:#e7c6b3;color:var(--ink)}
+  .menu-thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 47%;transform:scale(1.5);transform-origin:50% 47%}
+  .menu-thumb svg{width:44px;opacity:.55}
+  .menu-name{font-size:1.55rem}
+  .menu-row:hover .menu-name{transform:none}
+  .menu-price{font-size:1.3rem;padding-top:4px}
+  .menu-go{display:none}
+}
 .refill-note{margin-top:22px;font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 20px}
 .refill-note .mono{color:inherit}
 
