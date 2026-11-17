@@ -89,6 +89,7 @@ export const translations = {
       titleEm: 'suit me?',
       lede: "Tap a style to compare it on the same eye, or answer three questions and we'll suggest one.",
       tabsLabel: 'Lash styles',
+      hold: 'Hold to compare',
       readout: { per: 'Per lash', curl: 'Curl', thk: 'Thickness', look: 'Looks' },
       styles: {
         natural: { tab: 'Your lashes', alt: 'Eye with natural lashes, no treatment', look: 'Bare', desc: 'Your natural lashes before any treatment. Usually 6–8 mm, fairly straight and thin at the tips.' },

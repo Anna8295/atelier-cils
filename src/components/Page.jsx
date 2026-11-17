@@ -30,9 +30,9 @@ export default function Page({ id, children }) {
             </h2>
             <p>{p.bandText}</p>
             <div className="book-band-ctas">
-              <a className="btn" href="#book" data-cursor="Book">{t.nav.book}</a>
-              <a className="btn outline-light" href="#services">{p.bandPrices}</a>
-              <a className="btn outline-light" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+              <a className="btn accent" href="#book" data-cursor="Book">{t.nav.book}</a>
+              <a className="btn ghost" href="#services">{p.bandPrices}</a>
+              <a className="btn ghost" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
             </div>
           </div>
         </div>
