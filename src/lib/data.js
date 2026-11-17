@@ -56,7 +56,6 @@ export const HUB = [
 export const HOURS = [null, null, [9, 19], [9, 19], [10, 20], [9, 19], [9, 16]]
 
 export const SLOTS = ['Tue 18 · 09:00', 'Tue 18 · 14:30', 'Thu 20 · 11:00', 'Fri 21 · 16:00', 'Sat 22 · 10:00']
-export const PAYMENTS = ['TWINT', 'Visa', 'Mastercard', 'Cash CHF']
 export const VOUCHER_AMOUNTS = [95, 150, 200]
 
 export const CONTACT = {
