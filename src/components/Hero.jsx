@@ -27,11 +27,9 @@ export default function Hero() {
   const vidRef = useRef(null)
   const blinkRef = useRef(null)
   const titleRef = useRef(null)
-  const playRef = useRef(() => {})
 
   const [pending, setPending] = useState(() => !prefersReducedMotion() && !introPlayed)
   const [idle, setIdle] = useState(() => introPlayed && !prefersReducedMotion())
-  const [blocked, setBlocked] = useState(() => prefersReducedMotion())
 
   // video playback + idle blinking
   useEffect(() => {
@@ -65,14 +63,10 @@ export default function Hero() {
       clearTimeout(idleT)
       bv.pause()
       setIdle(false)
-      setBlocked(false)
       vid.currentTime = 0
-      vid.play().catch(() => {
-        setPending(false)
-        setBlocked(true)
-      })
+      // autoplay blocked (e.g. low-power mode): show the copy over the poster frame
+      vid.play().catch(() => setPending(false))
     }
-    playRef.current = play
 
     vid.addEventListener('ended', onEnded)
     vid.addEventListener('error', onError)
@@ -146,13 +140,9 @@ export default function Hero() {
           {t.hero.titleB}
         </h1>
         <div className="hero-row">
-          <p>{t.hero.sub}</p>
           <div className="hero-ctas">
             <a className="btn light" href="#book" data-cursor="Book">{t.hero.book}</a>
             <a className="btn outline-light" href="#services" data-cursor="View">{t.hero.prices}</a>
-            <button type="button" className="replay" onClick={() => playRef.current()}>
-              {blocked ? t.hero.play : t.hero.replay}
-            </button>
           </div>
         </div>
       </div>
