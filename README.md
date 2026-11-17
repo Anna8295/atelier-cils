@@ -70,5 +70,5 @@ Change `2.85` to the moment the eyes are fully closed in the new video.
 - Replace the AI sample images in the gallery with real client photos.
 - Replace the sample reviews with real Google reviews.
 - Real name, address, phone, WhatsApp, Instagram and Fresha link in `src/lib/data.js`.
-- Portrait photo in the About section.
+- Portrait photo of Léa on the About page (`PORTRAIT` in `src/components/About.jsx` currently shows a lash close-up).
 - Add the FR and DE translations, then the Impressum and privacy pages.

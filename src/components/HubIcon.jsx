@@ -98,6 +98,16 @@ const PATHS = {
     'M37 29.5A15 15 0 0 1 18.5 11a15 15 0 1 0 18.5 18.5z',
     'M34 8l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z',
   ],
+  // about: medal (training)
+  award: [
+    'M33 18a9 9 0 1 1-18 0a9 9 0 1 1 18 0',
+    'M19.5 25.5L16 42l8-4.5 8 4.5-3.5-16.5',
+  ],
+  // about: shield with a check (products & hygiene)
+  shield: [
+    'M24 5l15 6v11c0 10-6.5 17.5-15 21-8.5-3.5-15-11-15-21V11z',
+    'M17.5 24l4.5 4.5 8.5-9',
+  ],
   // gift box with a bow
   gift: [
     'M8 19h32v7H8z',

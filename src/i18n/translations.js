@@ -131,18 +131,34 @@ export const translations = {
     },
 
     about: {
+      titleA: 'Meet ',
+      titleEm: 'Léa.',
+      caption: 'Léa Morand · lash artist, Lausanne',
       story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid without you feeling a thing. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
       facts: [
         { n: '7', label: 'years doing lashes full time' },
         { n: '3 800+', label: 'sets and refills done' },
         { n: '1', label: 'client in the room at a time' },
       ],
-      certs: [
-        ['Certified volume lash artist', 'Lash Academy Genève · 2019'],
-        ['Mega volume masterclass', 'Milano · 2022'],
-        ['Lash lift & brow lamination', '2021'],
-        ['Sensitive-eye adhesive, latex and formaldehyde free', 'patch test on request'],
-        ['Single-use brushes, sterilised tweezers', 'every client'],
+      groups: [
+        {
+          icon: 'award',
+          title: 'Training',
+          items: [
+            ['Certified volume lash artist', 'Lash Academy Genève · 2019'],
+            ['Lash lift & brow lamination', '2021'],
+            ['Mega volume masterclass', 'Milano · 2022'],
+          ],
+        },
+        {
+          icon: 'shield',
+          title: 'Products & hygiene',
+          items: [
+            ['Sensitive-eye adhesive, latex and formaldehyde free', 'every set'],
+            ['Free patch test before a first set', 'on request'],
+            ['Single-use brushes, sterilised tweezers', 'every client'],
+          ],
+        },
       ],
     },
 
