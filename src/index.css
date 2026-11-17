@@ -398,7 +398,7 @@ p{margin:0}
 
 /* FOOTER */
 footer.site{border-top:1px solid var(--line);padding-block:48px calc(48px + env(safe-area-inset-bottom,0px))}
-.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) auto;gap:32px 40px;padding-bottom:44px;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) auto;gap:32px 40px;margin-top:36px;padding-block:40px;border-block:1px solid var(--line)}
 .foot-col{display:grid;gap:6px;align-content:start;font-size:.93rem;min-width:0}
 .foot-k{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .foot-muted{color:var(--muted)}

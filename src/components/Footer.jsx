@@ -23,8 +23,8 @@ function groupHours(c) {
   }))
 }
 
-// Footer on every page: studio, opening hours, contact, booking,
-// then the wordmark and the legal links.
+// Footer on every page: the wordmark, then studio, opening hours, contact,
+// booking, and the legal links.
 export default function Footer() {
   const { t } = useLang()
   const f = t.footer
@@ -55,6 +55,9 @@ export default function Footer() {
     <>
       <footer className="site" id="contact" ref={ref}>
         <div className="wrap">
+          <div className="wordmark" aria-hidden="true">
+            Atelier <em>Cils</em>
+          </div>
           <div className="foot-grid">
             <div className="foot-col">
               <span className="foot-k">{c.studio}</span>
@@ -93,9 +96,6 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="wordmark" aria-hidden="true">
-            Atelier <em>Cils</em>
-          </div>
           <div className="foot-row">
             <span>{f.rights}</span>
             <nav aria-label="Legal">
