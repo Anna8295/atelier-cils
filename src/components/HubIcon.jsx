@@ -38,6 +38,21 @@ const PATHS = {
     'M19 41.5c2.6-2.2 7.4-2.2 10 0',
     'M39 16l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z',
   ],
+  // footer: map pin
+  pin: [
+    'M24 43s-13-12.2-13-22a13 13 0 0 1 26 0c0 9.8-13 22-13 22z',
+    'M28.5 21a4.5 4.5 0 1 1-9 0a4.5 4.5 0 1 1 9 0',
+  ],
+  // footer: clock
+  clock: [
+    'M42 24a18 18 0 1 1-36 0a18 18 0 1 1 36 0',
+    'M24 13v11l7 5',
+  ],
+  // footer: speech bubble
+  chat: [
+    'M24 8c9.9 0 18 6.7 18 15s-8.1 15-18 15c-2.2 0-4.3-.3-6.2-.9L9 41l2.4-7.6C8.1 30.6 6 27 6 23 6 14.7 14.1 8 24 8z',
+    'M17 23h.01M24 23h.01M31 23h.01',
+  ],
   // gift box with a bow
   gift: [
     'M8 19h32v7H8z',
@@ -48,11 +63,11 @@ const PATHS = {
   ],
 }
 
-export default function HubIcon({ id }) {
+export default function HubIcon({ id, className = 'hub-icon' }) {
   const paths = PATHS[id]
   if (!paths) return null
   return (
-    <svg className="hub-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {paths.map((d) => (
         <path key={d} d={d} pathLength="1" />
       ))}
