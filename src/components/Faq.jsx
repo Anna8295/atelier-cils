@@ -7,7 +7,7 @@ export default function Faq() {
   return (
     <section className="section" id="faq" style={{ paddingTop: 0 }}>
       <div className="wrap faq">
-        <SectionHead eyebrow={f.eyebrow} a={f.titleA} em={f.titleEm} b={f.titleB} lede={f.lede} />
+        <SectionHead a={f.titleA} em={f.titleEm} b={f.titleB} lede={f.lede} />
         <div>
           {f.items.map(([q, answer], i) => (
             <details key={q} open={i === 0}>

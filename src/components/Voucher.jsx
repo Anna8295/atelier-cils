@@ -50,7 +50,6 @@ export default function Voucher() {
           </div>
         </div>
         <form className="vform" onSubmit={submit}>
-          <span className="eyebrow">{v.eyebrow}</span>
           <h2 style={{ fontSize: 'clamp(2rem,4vw,3rem)' }}>
             {v.titleA}
             <em>{v.titleEm}</em>

@@ -52,7 +52,7 @@ export default function Gallery() {
   return (
     <section className="section" id="gallery" style={{ paddingTop: 0 }} ref={ref}>
       <div className="wrap">
-        <SectionHead eyebrow={g.eyebrow} a={g.titleA} em={g.titleEm} />
+        <SectionHead a={g.titleA} em={g.titleEm} />
         <div className="chips">
           {FILTERS.map((f) => (
             <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>

@@ -45,8 +45,6 @@ h2 em,h1 em{font-style:italic;color:inherit}
 p{margin:0}
 .wrap{max-width:1240px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 .section{padding-block:clamp(72px,10vw,140px)}
-.eyebrow{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center}
-.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
 .lede{color:var(--muted);max-width:56ch;font-size:1.0625rem}
 .head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
@@ -226,7 +224,7 @@ p{margin:0}
 
 /* FIRST VISIT — horizontal */
 .visit{overflow:hidden;background:var(--ink);color:var(--bg)}
-.visit .eyebrow,.visit .lede{color:color-mix(in srgb,var(--bg) 65%,var(--ink))}
+.visit .lede{color:color-mix(in srgb,var(--bg) 65%,var(--ink))}
 .visit h2 em{color:inherit}
 .visit-inner{padding-block:clamp(72px,9vw,120px)}
 .steps{display:flex;gap:20px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);will-change:transform}

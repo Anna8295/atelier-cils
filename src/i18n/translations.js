@@ -33,7 +33,6 @@ export const translations = {
     marquee: ['Classic', 'Hybrid', 'Volume', 'Mega volume', 'Lash lift', 'Brow lamination', 'Refills'],
 
     services: {
-      eyebrow: 'Services & prices',
       titleA: 'Pick your set. ',
       titleEm: 'Prices included.',
       lede: 'Every full set includes a consultation, a lash map drawn for your eye shape, and a free check-up within 72 hours if anything feels off.',
@@ -57,7 +56,6 @@ export const translations = {
 
     // home: the cards that open the detail pages
     hub: {
-      eyebrow: 'Good to know',
       titleA: 'Everything else, ',
       titleEm: 'one tap away.',
       items: {
@@ -87,7 +85,6 @@ export const translations = {
     },
 
     guide: {
-      eyebrow: 'Style guide',
       titleA: 'Which lashes ',
       titleEm: 'suit me?',
       lede: "Tap a style to compare it on the same eye, or answer three questions and we'll suggest one.",
@@ -109,7 +106,6 @@ export const translations = {
           { id: 'nat', q: 'Your natural lashes are…', a: ['Fine or sparse', 'Average', 'Long and strong'] },
           { id: 'masc', q: 'Do you wear mascara now?', a: ['Never', 'Sometimes', 'Every day'] },
         ],
-        resultEyebrow: 'Our suggestion',
         empty: 'Answer all three',
         emptyWhy: 'Your result appears here and the photo on the left updates to show it.',
         book: (name) => `Book ${name}`,
@@ -124,7 +120,6 @@ export const translations = {
     },
 
     gallery: {
-      eyebrow: 'Before & after',
       titleA: 'Drag to see ',
       titleEm: 'the difference.',
       filters: { all: 'All', classic: 'Classic', hybrid: 'Hybrid', volume: 'Volume', lift: 'Lash lift' },
@@ -135,7 +130,6 @@ export const translations = {
     },
 
     about: {
-      eyebrow: 'About the artist',
       story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid without you feeling a thing. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
       facts: [
         { n: '7', label: 'years doing lashes full time' },
@@ -152,7 +146,6 @@ export const translations = {
     },
 
     reviews: {
-      eyebrow: 'Reviews',
       titleA: 'What clients ',
       titleEm: 'say.',
       items: [
@@ -167,7 +160,6 @@ export const translations = {
     },
 
     visit: {
-      eyebrow: 'Your first visit',
       titleA: 'What happens, ',
       titleEm: 'step by step.',
       lede: 'Knowing what to expect makes it easier to relax, and a relaxed eye is easier to work on.',
@@ -181,7 +173,6 @@ export const translations = {
     },
 
     aftercare: {
-      eyebrow: 'Aftercare',
       titleA: 'Make them ',
       titleEm: 'last longer.',
       timeline: [
@@ -204,7 +195,6 @@ export const translations = {
     },
 
     faq: {
-      eyebrow: 'FAQ',
       titleA: 'Questions ',
       titleEm: 'we get',
       titleB: ' every day.',
@@ -220,7 +210,6 @@ export const translations = {
     },
 
     booking: {
-      eyebrow: 'Booking',
       titleA: 'Book your ',
       titleEm: 'chair.',
       steps: { service: 'Service', date: 'Date & time', details: 'Your details' },
@@ -272,7 +261,6 @@ export const translations = {
     },
 
     voucher: {
-      eyebrow: 'Gift vouchers',
       titleA: 'Give someone ',
       titleEm: 'a full set.',
       card: 'Gift voucher',
@@ -287,7 +275,6 @@ export const translations = {
     },
 
     contact: {
-      eyebrow: 'Location & contact',
       titleA: 'Find ',
       titleEm: 'the studio.',
       pin: 'Atelier Cils · 2nd floor',

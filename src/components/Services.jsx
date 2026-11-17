@@ -64,7 +64,7 @@ export default function Services() {
   return (
     <section className="section" id="services" ref={ref}>
       <div className="wrap">
-        <SectionHead eyebrow={s.eyebrow} a={s.titleA} em={s.titleEm} lede={s.lede} />
+        <SectionHead a={s.titleA} em={s.titleEm} lede={s.lede} />
 
         <ul className="menu" onMouseLeave={() => setActive(null)}>
           {SERVICES.map((svc) => {

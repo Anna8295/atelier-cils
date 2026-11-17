@@ -35,7 +35,7 @@ export default function StyleGuide() {
   return (
     <section className="section" id="guide" style={{ paddingTop: 0 }}>
       <div className="wrap">
-        <SectionHead eyebrow={g.eyebrow} a={g.titleA} em={g.titleEm} lede={g.lede} />
+        <SectionHead a={g.titleA} em={g.titleEm} lede={g.lede} />
         <div className="guide">
           <div className="panel">
             <div className="tabs" role="tablist" aria-label={g.tabsLabel}>
@@ -78,7 +78,6 @@ export default function StyleGuide() {
               </div>
             ))}
             <div className="result" aria-live="polite">
-              <span className="eyebrow">{g.quiz.resultEyebrow}</span>
               <strong>{result ? resultName : g.quiz.empty}</strong>
               <p>{result ? g.quiz.why[result] : g.quiz.emptyWhy}</p>
               {result && (

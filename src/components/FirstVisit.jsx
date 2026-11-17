@@ -29,7 +29,7 @@ export default function FirstVisit() {
     <section className="visit" id="first-visit" ref={ref}>
       <div className="visit-inner">
         <div className="wrap">
-          <SectionHead eyebrow={v.eyebrow} a={v.titleA} em={v.titleEm} lede={v.lede} />
+          <SectionHead a={v.titleA} em={v.titleEm} lede={v.lede} />
         </div>
         <div className="steps" ref={trackRef}>
           {v.steps.map((s) => (

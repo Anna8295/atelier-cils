@@ -83,7 +83,7 @@ export default function Booking() {
   return (
     <section className="section" id="book" style={{ paddingTop: 0 }}>
       <div className="wrap">
-        <SectionHead eyebrow={b.eyebrow} a={b.titleA} em={b.titleEm} />
+        <SectionHead a={b.titleA} em={b.titleEm} />
 
         <div className="bkx">
           <Summary svc={svc} date={date} time={chosenTime} locale={locale} b={b} goTo={setStep} locked={step === 'done'} />

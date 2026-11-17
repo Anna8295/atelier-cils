@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <section className="section" id="contact" style={{ paddingTop: 0 }}>
       <div className="wrap">
-        <SectionHead eyebrow={c.eyebrow} a={c.titleA} em={c.titleEm} />
+        <SectionHead a={c.titleA} em={c.titleEm} />
         <div className="contact">
           <div className="map">
             <svg viewBox="0 0 400 300" aria-hidden="true">

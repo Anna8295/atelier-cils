@@ -34,7 +34,7 @@ export default function GoodToKnow() {
   return (
     <section className="section" id="good-to-know" style={{ paddingTop: 0 }} ref={ref}>
       <div className="wrap">
-        <SectionHead eyebrow={h.eyebrow} a={h.titleA} em={h.titleEm} />
+        <SectionHead a={h.titleA} em={h.titleEm} />
         <div className="hub">
           {HUB.map(({ id, to }) => {
             const it = h.items[id]

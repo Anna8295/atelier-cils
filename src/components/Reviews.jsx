@@ -40,7 +40,7 @@ export default function Reviews() {
   return (
     <section className="section" style={{ paddingTop: 0 }} aria-labelledby="revH">
       <div className="wrap">
-        <SectionHead eyebrow={r.eyebrow} a={r.titleA} em={r.titleEm} id="revH" style={{ marginBottom: 28 }} />
+        <SectionHead a={r.titleA} em={r.titleEm} id="revH" style={{ marginBottom: 28 }} />
       </div>
       <div className="reviews" ref={trackRef} data-cursor="Drag">
         {r.items.map(([quote, name]) => (

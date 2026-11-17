@@ -37,7 +37,7 @@ export default function Aftercare() {
   return (
     <section className="section" id="aftercare">
       <div className="wrap">
-        <SectionHead eyebrow={a.eyebrow} a={a.titleA} em={a.titleEm} />
+        <SectionHead a={a.titleA} em={a.titleEm} />
         <div className="care">
           <ol className="timeline">
             {a.timeline.map(([when, title, text]) => (

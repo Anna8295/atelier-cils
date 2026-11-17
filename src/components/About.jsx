@@ -36,7 +36,6 @@ export default function About() {
           <span className="mark">L</span>
         </div>
         <div>
-          <span className="eyebrow" style={{ marginBottom: 22 }}>{a.eyebrow}</span>
           <p className="fill-text" ref={fillRef}>
             {a.story.split(' ').map((w, i) => (
               <span className="w" key={i}>{w} </span>
