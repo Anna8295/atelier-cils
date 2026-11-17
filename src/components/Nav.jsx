@@ -1,28 +1,32 @@
 import { useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { LANGS } from '../i18n/translations.js'
 import { useToast } from '../lib/context.js'
 
+// "#…" = section on the home page, "/…" = detail page
 const LINKS = [
-  ['#services', 'services'],
-  ['#guide', 'guide'],
-  ['#gallery', 'gallery'],
-  ['#about', 'about'],
-  ['#first-visit', 'firstVisit'],
-  ['#faq', 'faq'],
+  ['#services', 'prices'],
+  ['#gallery', 'results'],
+  ['/style', 'guide'],
+  ['/visit', 'visit'],
+  ['/about', 'about'],
 ]
 
-// Hidden over the hero film; slides in as soon as the visitor scrolls.
+// On the home page the nav hides over the hero film and slides in once the
+// visitor scrolls. On detail pages it is always shown.
 export default function Nav() {
   const { t, lang, setLang, has } = useLang()
   const toast = useToast()
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => document.body.classList.toggle('nav-on', window.scrollY > 8)
+    const onScroll = () => document.body.classList.toggle('nav-on', !isHome || window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [isHome])
 
   const pickLang = (code) => {
     setLang(code)
@@ -32,13 +36,13 @@ export default function Nav() {
   return (
     <header className="nav">
       <div className="wrap">
-        <a className="logo" href="#top">
+        <Link className="logo" to="/">
           Atelier <em>Cils</em>
-        </a>
+        </Link>
         <ul>
           {LINKS.map(([href, key]) => (
             <li key={href}>
-              <a href={href}>{t.nav[key]}</a>
+              {href.startsWith('#') ? <a href={href}>{t.nav[key]}</a> : <NavLink to={href}>{t.nav[key]}</NavLink>}
             </li>
           ))}
         </ul>

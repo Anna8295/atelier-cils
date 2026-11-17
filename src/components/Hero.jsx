@@ -8,6 +8,10 @@ import poster from '../assets/video/poster.jpg'
 // blink clip speeds, picked at random so the idle loop never feels mechanical
 const SPEEDS = [0.85, 1, 1.25, 1.5, 1.8]
 
+// the intro plays once per visit; coming back from a detail page goes
+// straight to the volume lashes and idle blinking
+let introPlayed = false
+
 /*
   Sequence:
   1. dark screen, the film opens from a thin line (like an eyelid)
@@ -25,8 +29,8 @@ export default function Hero() {
   const titleRef = useRef(null)
   const playRef = useRef(() => {})
 
-  const [pending, setPending] = useState(() => !prefersReducedMotion())
-  const [idle, setIdle] = useState(false)
+  const [pending, setPending] = useState(() => !prefersReducedMotion() && !introPlayed)
+  const [idle, setIdle] = useState(() => introPlayed && !prefersReducedMotion())
   const [blocked, setBlocked] = useState(() => prefersReducedMotion())
 
   // video playback + idle blinking
@@ -50,6 +54,7 @@ export default function Hero() {
     }
     const onBlinkEnd = () => schedule(Math.random() < 0.22 ? 250 : undefined)
     const onEnded = () => {
+      introPlayed = true
       setPending(false)
       if (reduced) return
       setIdle(true)
@@ -76,13 +81,24 @@ export default function Hero() {
     io.observe(heroRef.current)
     const safety = setTimeout(() => setPending(false), 8000) // never leave the copy hidden
 
+    // returning visit: park the intro on its last frame and start blinking
+    const skipIntro = introPlayed && !reduced
+    const parkOnLastFrame = () => { vid.currentTime = Math.max(0, vid.duration - 0.05) }
+    if (skipIntro) {
+      if (vid.readyState >= 1) parkOnLastFrame()
+      else vid.addEventListener('loadedmetadata', parkOnLastFrame, { once: true })
+      schedule(1200)
+    }
+
     let ctx
     if (!reduced) {
       ctx = gsap.context(() => {
-        gsap.fromTo(film, { clipPath: 'inset(50% 0% 50% 0%)' }, {
-          clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut', delay: 0.3,
-          onComplete: () => { gsap.set(film, { clearProps: 'clipPath' }); play() },
-        })
+        if (!skipIntro) {
+          gsap.fromTo(film, { clipPath: 'inset(50% 0% 50% 0%)' }, {
+            clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut', delay: 0.3,
+            onComplete: () => { gsap.set(film, { clearProps: 'clipPath' }); play() },
+          })
+        }
         const st = { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: true }
         gsap.to(vid.parentNode.querySelectorAll('video'), { yPercent: 12, ease: 'none', scrollTrigger: st })
         gsap.to('.hero-copy', { y: -60, ease: 'none', scrollTrigger: { ...st } })
@@ -94,6 +110,7 @@ export default function Hero() {
       clearTimeout(safety)
       vid.removeEventListener('ended', onEnded)
       vid.removeEventListener('error', onError)
+      vid.removeEventListener('loadedmetadata', parkOnLastFrame)
       bv.removeEventListener('ended', onBlinkEnd)
       io.disconnect()
       ctx?.revert()
@@ -102,9 +119,10 @@ export default function Hero() {
     }
   }, [])
 
-  // copy reveal once the film has played
+  // copy reveal once the film has played (not on a returning visit: it's already there)
+  const revealOnMount = useRef(!introPlayed)
   useEffect(() => {
-    if (pending || prefersReducedMotion()) return
+    if (pending || prefersReducedMotion() || !revealOnMount.current) return
     const ctx = gsap.context(() => {
       gsap.timeline()
         .from(splitChars(titleRef.current), { yPercent: 70, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.022 })

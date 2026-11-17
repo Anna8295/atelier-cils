@@ -42,6 +42,16 @@ export const GALLERY = [
   { id: 'lift', filter: 'lift', name: 'Lash lift + tint', spec: 'own lashes' },
 ]
 
+// "Good to know" cards on the home page → detail pages (text in translations.hub)
+export const HUB = [
+  { id: 'style', to: '/style' },
+  { id: 'visit', to: '/visit' },
+  { id: 'aftercare', to: '/aftercare' },
+  { id: 'faq', to: '/visit#faq' },
+  { id: 'about', to: '/about' },
+  { id: 'gift', to: '/gift' },
+]
+
 // opening hours, index = Date#getDay() (0 = Sunday)
 export const HOURS = [null, null, [9, 19], [9, 19], [10, 20], [9, 19], [9, 16]]
 

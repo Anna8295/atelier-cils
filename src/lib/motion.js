@@ -34,12 +34,23 @@ export function getLenis() {
 }
 
 // smooth-scroll to "#id" (or the top), leaving room for the fixed nav
-export function scrollToHash(hash) {
+export function scrollToHash(hash, { immediate = false } = {}) {
   const target = hash === '#top' ? 0 : document.querySelector(hash)
   if (target === null) return
-  if (lenis) lenis.scrollTo(target, { offset: -70, duration: 1.4 })
+  if (lenis) {
+    lenis.resize() // the page may have just changed height (new route)
+    lenis.scrollTo(target, { offset: -70, duration: 1.4, immediate })
+  }
   else if (target === 0) window.scrollTo({ top: 0 })
-  else target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+  else {
+    const y = target.getBoundingClientRect().top + window.scrollY - 70
+    window.scrollTo({ top: y, behavior: immediate || prefersReducedMotion() ? 'auto' : 'smooth' })
+  }
+}
+
+export function scrollToTop() {
+  if (lenis) lenis.scrollTo(0, { immediate: true })
+  else window.scrollTo(0, 0)
 }
 
 // Wraps each character in <span class="ch"> (words kept together in .wd).

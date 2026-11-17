@@ -14,12 +14,29 @@ npm run preview   # serve the build
 npm run lint      # oxlint
 ```
 
+## Pages
+
+The home page has one job: show results and get the booking. Supporting info has its own pages, opened from the "Good to know" cards and the nav.
+
+| Route | Content |
+| --- | --- |
+| `/` | Hero film, prices, before & after, reviews, Good to know cards, booking, location |
+| `/style` | Which lashes suit me? Style comparison + 3-question quiz |
+| `/visit` | First visit steps + FAQ (`/visit#faq`) |
+| `/aftercare` | Aftercare tips + refill calculator |
+| `/about` | About Léa, certifications, products |
+| `/gift` | Gift vouchers |
+
+Every detail page ends with a booking band. `#…` links (like `#book`) always lead to that section on the home page, from any page.
+`public/_redirects` sends every route to `index.html` on Netlify.
+
 ## Where things live
 
 | What | Where |
 | --- | --- |
 | All text (for FR / DE translations) | `src/i18n/translations.js` |
 | Prices, durations, opening hours, contact details, booking link | `src/lib/data.js` |
+| Pages (which sections each route shows) | `src/pages/` |
 | One component per page section | `src/components/` |
 | Smooth scroll, headline char reveal, reduced-motion check | `src/lib/motion.js` |
 | Colours, fonts, all styles | `src/index.css` (tokens at the top, dark mode included) |

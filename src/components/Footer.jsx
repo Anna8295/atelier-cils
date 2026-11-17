@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { CONTACT } from '../lib/data.js'
 import { gsap, prefersReducedMotion } from '../lib/motion.js'
@@ -25,11 +26,12 @@ export default function Footer() {
           </div>
           <div className="foot-row">
             <span>{f.rights}</span>
-            <nav aria-label="Legal">
+            <nav aria-label="Footer">
+              <Link to="/gift">{f.vouchers}</Link>
+              <Link to="/visit#faq">{f.faq}</Link>
+              <a href="#contact">{f.contact}</a>
               <a href="#top">{f.imprint}</a>
               <a href="#top">{f.privacy}</a>
-              <a href="#vouchers">{f.vouchers}</a>
-              <a href="#contact">{f.contact}</a>
             </nav>
           </div>
         </div>

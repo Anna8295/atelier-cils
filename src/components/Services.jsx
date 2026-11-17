@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { useBooking } from '../lib/context.js'
 import { SERVICES, REFILLS } from '../lib/data.js'
@@ -66,6 +67,7 @@ export default function Services() {
           ))}
           <span>{s.refillNew}</span>
         </div>
+        <Link to="/style" className="text-link">{s.quizLink}</Link>
       </div>
     </section>
   )

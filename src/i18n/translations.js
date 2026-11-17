@@ -10,12 +10,11 @@ export const LANGS = ['fr', 'de', 'en']
 export const translations = {
   en: {
     nav: {
-      services: 'Services',
+      prices: 'Prices',
+      results: 'Results',
       guide: 'Which lashes?',
-      gallery: 'Gallery',
+      visit: 'Your visit',
       about: 'About',
-      firstVisit: 'First visit',
-      faq: 'FAQ',
       book: 'Book now',
       langSoon: (code) => `The ${code} version is coming in the next round.`,
     },
@@ -56,6 +55,38 @@ export const translations = {
       refill2: '2 weeks',
       refill3: '3 weeks',
       refillNew: 'After 4 weeks, a new full set is needed.',
+      quizLink: 'Not sure which set? Take the 20-second quiz →',
+    },
+
+    // home: the cards that open the detail pages
+    hub: {
+      eyebrow: 'Good to know',
+      titleA: 'Everything else, ',
+      titleEm: 'one tap away.',
+      items: {
+        style: { meta: 'Quiz · 20 sec', title: 'Which lashes suit me?', text: 'Compare every style on the same eye, or answer three questions and get a suggestion.' },
+        visit: { meta: '5 steps', title: 'Your first visit', text: 'Patch test, how to prepare, and what happens while you lie back in the chair.' },
+        aftercare: { meta: 'Refill calculator', title: 'Aftercare & refills', text: 'Keep your set full for longer, and see exactly when your refill is due.' },
+        faq: { meta: '6 answers', title: 'Questions', text: 'Does it hurt? What about allergies, makeup or pregnancy?' },
+        about: { meta: '7 years · 3 800+ sets', title: 'About Léa', text: 'Certifications, the sensitive-eye glue she uses, and why she works alone.' },
+        gift: { meta: 'From CHF 95', title: 'Gift vouchers', text: 'Give a lash lift, a hybrid set or mega volume. Valid for 12 months.' },
+      },
+    },
+
+    // detail pages
+    page: {
+      back: '← Back to home',
+      titles: {
+        style: 'Which lashes suit me? · Atelier Cils',
+        visit: 'Your first visit · Atelier Cils',
+        aftercare: 'Aftercare & refills · Atelier Cils',
+        about: 'About Léa · Atelier Cils',
+        gift: 'Gift vouchers · Atelier Cils',
+      },
+      bandA: 'Ready when ',
+      bandEm: 'you are.',
+      bandText: 'Pick a set and a time. Booking takes about a minute.',
+      bandPrices: 'See prices',
     },
 
     guide: {
@@ -250,6 +281,7 @@ export const translations = {
       imprint: 'Impressum',
       privacy: 'Privacy policy',
       vouchers: 'Gift vouchers',
+      faq: 'FAQ',
       contact: 'Contact',
     },
   },
