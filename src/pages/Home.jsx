@@ -5,7 +5,6 @@ import Gallery from '../components/Gallery.jsx'
 import Reviews from '../components/Reviews.jsx'
 import GoodToKnow from '../components/GoodToKnow.jsx'
 import Booking from '../components/booking/Booking.jsx'
-import Contact from '../components/Contact.jsx'
 
 // The home page does one job: show results and get the booking.
 // Everything supporting lives on the detail pages behind <GoodToKnow />.
@@ -19,7 +18,6 @@ export default function Home() {
       <Reviews />
       <GoodToKnow />
       <Booking />
-      <Contact />
     </>
   )
 }

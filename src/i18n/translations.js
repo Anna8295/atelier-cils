@@ -274,16 +274,15 @@ export const translations = {
       done: (a) => `Request ready for a CHF ${a} voucher. On the live site this goes to checkout with TWINT or card.`,
     },
 
+    // footer: studio, hours, contact
     contact: {
-      titleA: 'Find ',
-      titleEm: 'the studio.',
-      pin: 'Atelier Cils · 2nd floor',
-      lake: 'LAC LÉMAN',
+      studio: 'Studio',
+      hours: 'Opening hours',
+      contact: 'Contact',
       street: 'Rue de Bourg 12',
-      city: '1003 Lausanne · buzzer “Cils”, 2nd floor',
-      metro: ['Metro', 'M2 to Lausanne-Flon or Bessières, 4 min walk'],
-      parking: ['Parking', 'Parking Riponne-Maurice Béjart, 6 min walk'],
-      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      city: '1003 Lausanne · 2nd floor, buzzer “Cils”',
+      metro: 'Metro M2, Flon or Bessières · 4 min walk',
+      daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       closed: 'Closed',
       copy: 'Copy',
       copied: 'Number copied',
@@ -297,7 +296,6 @@ export const translations = {
       privacy: 'Privacy policy',
       vouchers: 'Gift vouchers',
       faq: 'FAQ',
-      contact: 'Contact',
     },
   },
 }
