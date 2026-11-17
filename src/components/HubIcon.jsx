@@ -108,6 +108,17 @@ const PATHS = {
     'M24 5l15 6v11c0 10-6.5 17.5-15 21-8.5-3.5-15-11-15-21V11z',
     'M17.5 24l4.5 4.5 8.5-9',
   ],
+  // voucher: phone with a tick (pay with TWINT or card)
+  pay: [
+    'M16 5h16a3 3 0 0 1 3 3v32a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z',
+    'M19 24l3.5 3.5 7-7',
+    'M22 38h4',
+  ],
+  // voucher: envelope
+  mail: [
+    'M9 12h30a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3z',
+    'M7 14l17 12 17-12',
+  ],
   // gift box with a bow
   gift: [
     'M8 19h32v7H8z',
