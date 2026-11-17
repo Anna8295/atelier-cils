@@ -82,7 +82,7 @@ export default function StyleGuide() {
               <strong>{result ? resultName : g.quiz.empty}</strong>
               <p>{result ? g.quiz.why[result] : g.quiz.emptyWhy}</p>
               {result && (
-                <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(resultName)}>
+                <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(result)}>
                   {g.quiz.book(resultName)}
                 </a>
               )}

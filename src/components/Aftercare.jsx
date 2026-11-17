@@ -64,7 +64,7 @@ export default function Aftercare() {
               <b>{msg[0]}</b>
               {msg[1]}
             </p>
-            <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(t.booking.refill)}>
+            <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService('refill2')}>
               {a.book}
             </a>
           </div>

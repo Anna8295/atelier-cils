@@ -43,6 +43,14 @@ Every detail page ends with a booking band. `#…` links (like `#book`) always l
 | Lash photos (style guide + gallery) | `src/assets/lashes/` |
 | Hero video + idle blink clip | `src/assets/video/` |
 
+## Booking
+
+`src/components/booking/` is the full client flow: service → calendar & free times → details → done (with an .ics "Add to calendar").
+It is **UI only for now**: nothing is saved or sent.
+
+- `src/lib/availability.js` works out free start times from opening hours (`HOURS` in `data.js`), the service length, 2 h same-day notice and existing bookings. Existing bookings come from `busyFor()`, which generates example bookings per date.
+- To go live: replace `busyFor()` with bookings from the database (Supabase), and make the confirm step in `Booking.jsx` send the booking to a server function that re-checks the slot, saves it and sends the emails.
+
 ## Hero video
 
 `hero.mp4` plays once (natural lashes → blink → full volume), then the copy appears.

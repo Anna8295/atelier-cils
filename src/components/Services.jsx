@@ -77,7 +77,7 @@ export default function Services() {
                   href="#book"
                   data-cursor={img ? undefined : 'Book'}
                   onMouseEnter={() => setActive(svc.id)}
-                  onClick={() => setService(txt.name)}
+                  onClick={() => setService(svc.id)}
                   aria-label={`${s.book}: ${txt.name}, ${svc.minutes} min, CHF ${svc.price}`}
                 >
                   <span className="menu-thumb" aria-hidden="true">

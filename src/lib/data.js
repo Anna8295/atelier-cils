@@ -18,9 +18,11 @@ export const SERVICES = [
 ]
 
 export const REFILLS = [
-  { weeks: 2, price: 65, minutes: 60 },
-  { weeks: 3, price: 80, minutes: 75 },
+  { id: 'refill2', weeks: 2, price: 65, minutes: 60 },
+  { id: 'refill3', weeks: 3, price: 80, minutes: 75 },
 ]
+
+export const STUDIO_ADDRESS = 'Rue de Bourg 12, 1003 Lausanne'
 
 // style guide: same eye, different lashes
 export const STYLES = [
@@ -55,7 +57,6 @@ export const HUB = [
 // opening hours, index = Date#getDay() (0 = Sunday)
 export const HOURS = [null, null, [9, 19], [9, 19], [10, 20], [9, 19], [9, 16]]
 
-export const SLOTS = ['Tue 18 · 09:00', 'Tue 18 · 14:30', 'Thu 20 · 11:00', 'Fri 21 · 16:00', 'Sat 22 · 10:00']
 export const VOUCHER_AMOUNTS = [95, 150, 200]
 
 export const CONTACT = {
