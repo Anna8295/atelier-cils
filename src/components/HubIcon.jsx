@@ -53,6 +53,35 @@ const PATHS = {
     'M24 8c9.9 0 18 6.7 18 15s-8.1 15-18 15c-2.2 0-4.3-.3-6.2-.9L9 41l2.4-7.6C8.1 30.6 6 27 6 23 6 14.7 14.1 8 24 8z',
     'M17 23h.01M24 23h.01M31 23h.01',
   ],
+  // visit steps: plaster (patch test)
+  patch: [
+    'M9.5 30.5l21-21a5 5 0 0 1 7 7l-21 21a5 5 0 0 1-7-7z',
+    'M19 20l9 9',
+    'M21.5 24.5h.01M24.5 21.5h.01M26.5 26.5h.01M23.5 23.5h.01',
+  ],
+  // visit steps: checklist (come ready)
+  ready: [
+    'M14 7h20a3 3 0 0 1 3 3v30a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V10a3 3 0 0 1 3-3z',
+    'M16.5 18l2.5 2.5 4.5-5M16.5 29l2.5 2.5 4.5-5',
+    'M27 18h5M27 29h5',
+  ],
+  // visit steps: pencil drawing a lash map (consultation)
+  consult: [
+    'M31 7l10 10-21 21H10V28z',
+    'M27 11l10 10',
+    'M7 43c7-3 15-3 22 0',
+  ],
+  // visit steps: closed eye with lashes (application)
+  apply: [
+    'M6 20c5 8 11 11 18 11s13-3 18-11',
+    'M11.5 27.5l-3 4.5M17.5 30l-1.6 5M24 31v5.5M30.5 30l1.6 5M36.5 27.5l3 4.5',
+  ],
+  // visit steps: hand mirror (check)
+  mirror: [
+    'M35 18a12 12 0 1 1-24 0a12 12 0 1 1 24 0',
+    'M23 30v13M19 43h8',
+    'M16.5 15.5a7 7 0 0 1 5.5-4.5',
+  ],
   // gift box with a bow
   gift: [
     'M8 19h32v7H8z',

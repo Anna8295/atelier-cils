@@ -165,11 +165,11 @@ export const translations = {
       titleEm: 'step by step.',
       lede: 'Knowing what to expect makes it easier to relax, and a relaxed eye is easier to work on.',
       steps: [
-        { num: 'Step 1 · 48 h before', title: 'Patch test', text: "If it's your first set or you have sensitive eyes, come in for a 5-minute patch test. We check for any reaction 48 hours later.", time: 'Free · 5 min' },
-        { num: 'Step 2 · on the day', title: 'Come ready', list: ['No mascara or eye makeup', 'Remove contact lenses', 'Skip the extra coffee, it makes eyes twitch', 'Wash your face, no oil-based cleanser'], time: 'Arrive 5 min early' },
-        { num: 'Step 3 · 15 min', title: 'Consultation', text: 'We look at your eye shape and your natural lashes, then draw a lash map: curl, lengths and where the longest lashes go.', time: 'Included' },
-        { num: 'Step 4 · 90–150 min', title: 'Application', text: 'You lie down with your eyes closed under a soft lamp. Lower lashes are covered with a gel pad. Most clients nap.', time: 'Blanket and music included' },
-        { num: 'Step 5 · last 5 min', title: 'Check & aftercare', text: 'Mirror check, a cleansing brush to take home, and your refill date booked before you leave.', time: 'Refill in 2–3 weeks' },
+        { num: '48 h before', title: 'Patch test', text: "If it's your first set or you have sensitive eyes, come in for a 5-minute patch test. We check for any reaction 48 hours later.", time: 'Free · 5 min' },
+        { num: 'On the day', title: 'Come ready', list: ['No mascara or eye makeup', 'Remove contact lenses', 'Skip the extra coffee, it makes eyes twitch', 'Wash your face, no oil-based cleanser'], time: 'Arrive 5 min early' },
+        { num: '15 min', title: 'Consultation', text: 'We look at your eye shape and your natural lashes, then draw a lash map: curl, lengths and where the longest lashes go.', time: 'Included' },
+        { num: '90–150 min', title: 'Application', text: 'You lie down with your eyes closed under a soft lamp. Lower lashes are covered with a gel pad. Most clients nap.', time: 'Blanket and music included' },
+        { num: 'Last 5 min', title: 'Check & aftercare', text: 'Mirror check, a cleansing brush to take home, and your refill date booked before you leave.', time: 'Refill in 2–3 weeks' },
       ],
     },
 
@@ -200,6 +200,7 @@ export const translations = {
       titleEm: 'we get',
       titleB: ' every day.',
       lede: 'Still unsure? Send a WhatsApp message and Léa replies the same day.',
+      ask: 'Ask on WhatsApp ↗',
       items: [
         ['Does it hurt?', 'No. Extensions are glued to your natural lash about 1 mm from the skin, never to the eyelid. You keep your eyes closed the whole time. Most people fall asleep.'],
         ['How long do extensions last?', 'They fall out with your natural lashes over 4 to 6 weeks. With refills every 2 to 3 weeks you can keep a full set as long as you like.'],
