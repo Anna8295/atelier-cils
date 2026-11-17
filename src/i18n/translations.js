@@ -176,6 +176,7 @@ export const translations = {
     aftercare: {
       titleA: 'Make them ',
       titleEm: 'last longer.',
+      lede: 'Five small habits keep a set full for three to four weeks.',
       timeline: [
         ['0–24 h', 'Keep them dry', 'No water, steam, sauna or swimming while the glue fully cures.'],
         ['Daily', 'Clean and brush', 'Wash with lash foam and a soft brush, pat dry, then brush through with the spoolie.'],
@@ -185,8 +186,10 @@ export const translations = {
       ],
       calcTitle: 'When is my refill due?',
       calcLabel: 'Date of your last set or refill',
-      meter: ['Fresh', '2 wk', '3 wk', 'New set'],
+      zones: { fresh: 'Fresh', window: 'Refill window', newSet: 'New set', today: 'Today' },
       book: 'Book my refill',
+      remind: 'Add a reminder',
+      remindTitle: 'Book your lash refill · Atelier Cils',
       empty: 'Pick a date to see your refill window.',
       future: ['That date is in the future.', 'Pick the day of your last appointment.'],
       early: (a, b, days) => [`Refill between ${a} and ${b}.`, `Day ${days} of your set. You have ${14 - days} days before the ideal window opens.`],

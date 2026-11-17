@@ -82,6 +82,22 @@ const PATHS = {
     'M23 30v13M19 43h8',
     'M16.5 15.5a7 7 0 0 1 5.5-4.5',
   ],
+  // aftercare: crossed-out water drop (keep dry)
+  dry: [
+    'M24 7c-6.5 8.5-10.5 14.4-10.5 19.5a10.5 10.5 0 0 0 21 0C34.5 21.4 30.5 15.5 24 7z',
+    'M9 9l30 30',
+  ],
+  // aftercare: crossed-out oil bottle
+  oil: [
+    'M20 5h8v6l5 6v22a3 3 0 0 1-3 3H18a3 3 0 0 1-3-3V17l5-6z',
+    'M15 22h18',
+    'M20 28l8 8M28 28l-8 8',
+  ],
+  // aftercare: moon (sleep)
+  moon: [
+    'M37 29.5A15 15 0 0 1 18.5 11a15 15 0 1 0 18.5 18.5z',
+    'M34 8l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z',
+  ],
   // gift box with a bow
   gift: [
     'M8 19h32v7H8z',
