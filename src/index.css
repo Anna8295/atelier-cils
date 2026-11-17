@@ -195,12 +195,11 @@ p{margin:0}
 .ba-cap{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0;font-size:.9rem}
 .ba-cap .mono{color:var(--muted);font-size:.75rem}
 .g-item[hidden]{display:none!important}
-.gal-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;color:var(--muted);font-size:.85rem}
+.gal-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:flex-end;color:var(--muted);font-size:.85rem}
 
 /* ABOUT */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:start}
 .portrait{aspect-ratio:4/5;max-width:100%;border-radius:200px 200px var(--radius) var(--radius);background:linear-gradient(160deg,var(--soft),color-mix(in srgb,var(--accent) 30%,var(--soft)));display:grid;place-items:end start;padding:22px;position:relative;overflow:hidden}
-.portrait .mono{font-size:.72rem;color:var(--ink);background:var(--surface);padding:6px 10px;border-radius:999px}
 .portrait .mark{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-style:italic;font-size:clamp(6rem,14vw,11rem);color:color-mix(in srgb,var(--ink) 18%,transparent)}
 .fill-text{font-family:var(--f-display);font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.18;letter-spacing:-.01em}
 .fill-text .w{color:color-mix(in srgb,var(--ink) 28%,var(--bg));transition:color .2s}
@@ -224,7 +223,6 @@ p{margin:0}
 .rev-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}
 .rating{display:flex;align-items:baseline;gap:12px}
 .rating .big{font-family:var(--f-display);font-size:3.4rem;line-height:1}
-.sample{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:4px 10px}
 
 /* FIRST VISIT — horizontal */
 .visit{overflow:hidden;background:var(--ink);color:var(--bg)}

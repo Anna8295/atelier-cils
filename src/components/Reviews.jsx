@@ -58,7 +58,6 @@ export default function Reviews() {
           <span className="big">4.9</span>
           <span className="mono" style={{ color: 'var(--muted)', fontSize: '.8rem' }}>{r.rating}</span>
         </div>
-        <span className="sample">{r.sample}</span>
       </div>
     </section>
   )

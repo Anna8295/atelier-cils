@@ -34,7 +34,6 @@ export default function About() {
       <div className="wrap about">
         <div className="portrait">
           <span className="mark">L</span>
-          <span className="mono">{a.portrait}</span>
         </div>
         <div>
           <span className="eyebrow" style={{ marginBottom: 22 }}>{a.eyebrow}</span>

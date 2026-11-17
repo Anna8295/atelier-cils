@@ -131,13 +131,11 @@ export const translations = {
       before: 'Before',
       after: 'After',
       compare: (name) => `Compare before and after: ${name}`,
-      sample: 'AI sample images. Replace with real client photos before going live.',
       instagram: 'More on Instagram ↗',
     },
 
     about: {
       eyebrow: 'About the artist',
-      portrait: 'Portrait photo goes here',
       story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid without you feeling a thing. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
       facts: [
         { n: '7', label: 'years doing lashes full time' },
@@ -166,7 +164,6 @@ export const translations = {
         ['Booking through the app took one minute and I got a reminder the day before. Very easy.', 'Lara F.'],
       ],
       rating: '★ on Google · 212 reviews',
-      sample: 'Sample reviews. The live site pulls these from Google.',
     },
 
     visit: {

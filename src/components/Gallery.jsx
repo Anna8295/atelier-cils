@@ -66,7 +66,6 @@ export default function Gallery() {
           ))}
         </div>
         <div className="gal-foot">
-          <span className="sample">{g.sample}</span>
           <a className="btn ghost" href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">{g.instagram}</a>
         </div>
       </div>
