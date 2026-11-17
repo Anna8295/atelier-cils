@@ -195,7 +195,7 @@ p{margin:0}
 .ba-cap{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0;font-size:.9rem}
 .ba-cap .mono{color:var(--muted);font-size:.75rem}
 .g-item[hidden]{display:none!important}
-.gal-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:flex-end;color:var(--muted);font-size:.85rem}
+.section-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:flex-end;color:var(--muted);font-size:.85rem}
 
 /* ABOUT */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:start}
@@ -355,9 +355,6 @@ footer.site{border-top:1px solid var(--line);padding-block:48px calc(48px + env(
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* ---------- multi-page ---------- */
-/* text link (one colour, underline only) */
-.text-link{display:inline-block;margin-top:26px;font-weight:600;font-size:.95rem;color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px;transition:text-underline-offset .25s}
-.text-link:hover{text-underline-offset:8px}
 .nav ul a.active{color:var(--ink)}
 
 /* "Good to know" hub on the home page */

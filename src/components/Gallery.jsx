@@ -65,7 +65,7 @@ export default function Gallery() {
             <BeforeAfter key={it.id} item={it} />
           ))}
         </div>
-        <div className="gal-foot">
+        <div className="section-foot">
           <a className="btn ghost" href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">{g.instagram}</a>
         </div>
       </div>
