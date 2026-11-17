@@ -12,6 +12,10 @@ const SPEEDS = [0.85, 1, 1.25, 1.5, 1.8]
 // straight to the volume lashes and idle blinking
 let introPlayed = false
 
+// seconds into hero.mp4 where the copy starts: the eyes open at ≈ 2.9–3.2 s.
+// A little early because 'timeupdate' only fires about every 250 ms.
+const REVEAL_AT = 2.8
+
 /*
   Sequence:
   1. dark screen, the film opens from a thin line (like an eyelid)
@@ -59,6 +63,8 @@ export default function Hero() {
       schedule(1800)
     }
     const onError = () => setPending(false)
+    // the copy starts as the eyes open with the volume lashes, not after the video ends
+    const onTime = () => { if (vid.currentTime >= REVEAL_AT) setPending(false) }
     const play = () => {
       clearTimeout(idleT)
       bv.pause()
@@ -70,6 +76,7 @@ export default function Hero() {
 
     vid.addEventListener('ended', onEnded)
     vid.addEventListener('error', onError)
+    vid.addEventListener('timeupdate', onTime)
     bv.addEventListener('ended', onBlinkEnd)
     const io = new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting })
     io.observe(heroRef.current)
@@ -104,6 +111,7 @@ export default function Hero() {
       clearTimeout(safety)
       vid.removeEventListener('ended', onEnded)
       vid.removeEventListener('error', onError)
+      vid.removeEventListener('timeupdate', onTime)
       vid.removeEventListener('loadedmetadata', parkOnLastFrame)
       bv.removeEventListener('ended', onBlinkEnd)
       io.disconnect()
