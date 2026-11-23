@@ -20,12 +20,13 @@ The home page has one job: show results and get the booking. Supporting info has
 
 | Route | Content |
 | --- | --- |
-| `/` | Hero film, prices, before & after, reviews, Good to know cards, booking, location |
+| `/` | Hero film, prices, style comparison, Good to know cards, booking |
 | `/style` | Which lashes suit me? Style comparison + 3-question quiz |
 | `/visit` | First visit steps + FAQ (`/visit#faq`) |
 | `/aftercare` | Aftercare tips + refill calculator |
 | `/about` | About Léa, certifications, products |
 | `/gift` | Gift vouchers |
+| `/privacy`, `/terms`, `/imprint` | Privacy policy (with cookies), booking & voucher terms, imprint |
 
 Every detail page ends with a booking band. `#…` links (like `#book`) always lead to that section on the home page, from any page.
 `public/_redirects` sends every route to `index.html` on Netlify.
@@ -65,10 +66,18 @@ ffmpeg -i hero.mp4 -filter_complex "[0:v]trim=start=2.85,setpts=PTS-STARTPTS,spl
 
 Change `2.85` to the moment the eyes are fully closed in the new video.
 
+## Privacy and legal
+
+- No cookies, local storage, analytics or tracking. Fonts (Fontsource), images and videos are self-hosted, so no third party is contacted when a page loads. Keep it that way, or add a consent banner before adding any tracker.
+- WhatsApp, Instagram and Google Maps are plain links: they only receive data when a visitor clicks them.
+- The booking and voucher forms collect only what's needed and currently send nothing (UI only).
+- All business details live in `BUSINESS`, `TERMS` and `PRIVACY` in `src/lib/data.js` as `[PLACEHOLDERS]`. The legal texts are in `src/i18n/legal.js`; legally uncertain lines are marked `NEEDS REVIEW`.
+
 ## Before going live
 
-- Replace the AI sample images in the gallery with real client photos.
-- Replace the sample reviews with real Google reviews.
-- Real name, address, phone, WhatsApp, Instagram and Fresha link in `src/lib/data.js`.
+- Fill in every `[PLACEHOLDER]` in `BUSINESS`, `TERMS` and `PRIVACY` (`src/lib/data.js`) and resolve the `NEEDS REVIEW` notes in `src/i18n/legal.js`.
+- Confirm or replace the prototype values: prices, durations and lash specs (`SERVICES`, `REFILLS`, `VOUCHER_AMOUNTS`), opening hours (`HOURS`), the artist's first name "Léa" and her story, years/sets numbers and certifications (`about` in translations), "Most booked" on Hybrid, "Free" patch test.
+- The gallery and style guide use AI illustrations. Real client photos need the client's written consent.
+- Reviews were removed. Add real Google reviews only with permission.
 - Portrait photo of Léa on the About page (`PORTRAIT` in `src/components/About.jsx` currently shows a lash close-up).
 - Add the FR and DE translations, then the Impressum and privacy pages.
