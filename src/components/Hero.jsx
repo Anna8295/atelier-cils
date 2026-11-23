@@ -155,7 +155,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <a className="badge" href="#book" data-cursor="Book" aria-label={t.nav.book}>
+      <a className="badge" href="#book" data-cursor="Book" aria-label={t.hero.badge}>
         <svg className="ring" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
             <path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />

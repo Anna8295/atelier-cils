@@ -78,7 +78,6 @@ export default function Services() {
                   data-cursor={img ? undefined : 'Book'}
                   onMouseEnter={() => setActive(svc.id)}
                   onClick={() => setService(svc.id)}
-                  aria-label={`${s.book}: ${txt.name}, ${svc.minutes} min, CHF ${svc.price}`}
                 >
                   <span className="menu-thumb" aria-hidden="true">
                     {img ? (
@@ -87,6 +86,7 @@ export default function Services() {
                       <svg viewBox="0 0 64 80"><path d="M14 44c8-12 28-14 38-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
                     )}
                   </span>
+                  <span className="sr-only">{s.book} </span>
                   <span className="menu-name">
                     {txt.name}
                     {svc.featured && <span className="pill">{s.popular}</span>}
