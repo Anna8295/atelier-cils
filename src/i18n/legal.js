@@ -1,13 +1,10 @@
 // Legal pages: privacy policy (with cookies), terms, imprint.
 //
-// Every statement here is based on what the site's code actually does.
-// [BRACKETED] values are placeholders from BUSINESS / TERMS / PRIVACY in
-// src/lib/data.js. Lines marked NEEDS REVIEW are legally uncertain and
-// should be checked by the owner or a lawyer before going live.
-//
-// Draft for Switzerland (revised Federal Act on Data Protection, nFADP).
-// NEEDS REVIEW: whether the GDPR also applies (only if the studio actively
-// offers its services to people in the EU, e.g. clients from France).
+// Written for a fictional studio (this is a concept site). Every statement
+// about data matches what the code does; business details come from
+// BUSINESS / TERMS / PRIVACY in src/lib/data.js. If this ever becomes a real
+// business, have the texts checked against the nFADP (and the GDPR if EU
+// clients are targeted) before going live.
 
 import { BUSINESS, PRIVACY, TERMS } from '../lib/data.js'
 
@@ -36,7 +33,6 @@ export const legal = {
       {
         h: 'When you visit the website',
         body: [
-          // NEEDS REVIEW: the site is not deployed yet; confirm the host and what it logs.
           `The website is hosted by ${PRIVACY.hosting}. Like most hosts, it records technical data for every visit (IP address, date and time, page requested, browser and operating system) to deliver the site and keep it secure. These logs are kept for ${PRIVACY.logRetention}.`,
           'Some tools work only inside your browser and never send anything to us: the lash style quiz, the refill date calculator, and the "Add to calendar" and "Add a reminder" files, which are created on your device.',
         ],
@@ -47,7 +43,6 @@ export const legal = {
           'When you book, we collect: the service, date and time you chose, your name, your email address, your phone number (optional), whether it is your first visit, and an optional note.',
           'We use this to arrange and manage your appointment, send the confirmation and, if it is your first visit, offer a patch test. The legal basis is the contract you ask us to enter into.',
           'Please do not write health details in the note. If a treatment needs health information (for example allergies or eye conditions), Léa asks about it in person before the patch test or treatment.',
-          // NEEDS REVIEW: allergy/health answers are sensitive personal data under the nFADP.
           `Consultation and patch-test notes: ${PRIVACY.consultationNotes}.`,
           `Booking data is kept for ${PRIVACY.bookingRetention}.`,
         ],
@@ -62,14 +57,12 @@ export const legal = {
         h: 'Gift voucher requests',
         body: [
           "When you request a gift voucher, we collect: the amount, the recipient's first name, your name (optional), a short message (optional) and your email address. We use them to send you the payment link and the voucher.",
-          // NEEDS REVIEW: Swiss commercial law may require keeping accounting records for 10 years.
           `Voucher records are kept for ${PRIVACY.voucherRetention}.`,
         ],
       },
       {
         h: 'Service providers and transfers abroad',
         body: [
-          // NEEDS REVIEW: no backend exists yet; list the real providers once chosen.
           `Booking and voucher requests are processed and emailed using ${PRIVACY.processor}. Our hosting provider is ${PRIVACY.hosting}.`,
           'If a provider stores data outside Switzerland or the EU/EEA in a country without adequate data protection, we use recognised safeguards such as the EU Standard Contractual Clauses.',
         ],
@@ -90,7 +83,6 @@ export const legal = {
         h: 'Your rights',
         body: [
           'You can ask what data we hold about you, have it corrected or deleted, object to its use, receive a copy in a common format, and withdraw any consent you gave. Write to ' + B.email + '. We may ask you to confirm your identity.',
-          // NEEDS REVIEW: add the EU authority wording only if the GDPR applies.
           'You can also complain to the Swiss Federal Data Protection and Information Commissioner (FDPIC, edoeb.admin.ch). If you live in the EU, you can contact the data protection authority in your country.',
         ],
       },
@@ -109,7 +101,7 @@ export const legal = {
     title: 'Booking and voucher terms',
     updated: `Last updated: ${PRIVACY.lastUpdated}`,
     sections: [
-      { h: 'Who we are', body: [`These terms apply to treatments and gift vouchers from ${B.tradeName} (${B.legalName}, ${B.street}, ${B.city}).`] },
+      { h: 'Who we are', body: [`These terms apply to treatments and gift vouchers from ${B.legalName}, ${B.street}, ${B.city}.`] },
       {
         h: 'Bookings',
         body: [
@@ -142,18 +134,15 @@ export const legal = {
         h: 'Gift vouchers',
         body: [
           `Vouchers are valid for ${TERMS.voucherValidity} from the date of purchase.`,
-          // NEEDS REVIEW: voucher validity, cash refunds and (for EU buyers) a possible 14-day right of withdrawal.
           `${TERMS.voucherRefund}.`,
         ],
       },
       {
         h: 'Liability',
-        // NEEDS REVIEW: liability limits for cosmetic treatments.
         body: ['We carry out every treatment with care. Liability is governed by Swiss law. Nothing in these terms limits liability for intent or gross negligence.'],
       },
       {
         h: 'Applicable law',
-        // NEEDS REVIEW: consumers may keep the right to sue at their place of residence.
         body: [`Swiss law applies. Place of jurisdiction: ${TERMS.jurisdiction}, subject to mandatory consumer protection rules.`],
       },
     ],

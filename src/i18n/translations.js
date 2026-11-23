@@ -266,14 +266,17 @@ export const translations = {
       },
       policySummary: 'Deposit, cancellation and payment rules',
       policyToggle: 'Booking policy',
-      policies: (T) => [
-        ['Confirmation', T.confirmation],
-        ['Deposit', T.deposit],
-        ['Cancelling', `Free up to ${T.cancelNotice} before. ${T.lateCancel}`],
-        ['Late', T.late],
-        ['Refills', T.refill],
-        ['Payment', T.payment],
-      ],
+      policies: (T) => {
+        const s = (x) => x[0].toUpperCase() + x.slice(1) + '.'
+        return [
+          ['Confirmation', s(T.confirmation)],
+          ['Deposit', s(T.deposit)],
+          ['Cancelling', `Free up to ${T.cancelNotice} before. ${s(T.lateCancel)}`],
+          ['Late', s(T.late)],
+          ['Refills', s(T.refill)],
+          ['Payment', s(T.payment)],
+        ]
+      },
       terms: 'Full booking terms',
     },
 
@@ -330,7 +333,7 @@ export const translations = {
     },
 
     footer: {
-      rights: (year, b) => `© ${year} ${b.tradeName} · ${b.owner}`,
+      rights: (year, b) => `© ${year} ${b.tradeName} · Concept site, fictional studio`,
       imprint: 'Imprint',
       privacy: 'Privacy policy',
       terms: 'Terms',

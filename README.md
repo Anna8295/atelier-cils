@@ -71,11 +71,11 @@ Change `2.85` to the moment the eyes are fully closed in the new video.
 - No cookies, local storage, analytics or tracking. Fonts (Fontsource), images and videos are self-hosted, so no third party is contacted when a page loads. Keep it that way, or add a consent banner before adding any tracker.
 - WhatsApp, Instagram and Google Maps are plain links: they only receive data when a visitor clicks them.
 - The booking and voucher forms collect only what's needed and currently send nothing (UI only).
-- All business details live in `BUSINESS`, `TERMS` and `PRIVACY` in `src/lib/data.js` as `[PLACEHOLDERS]`. The legal texts are in `src/i18n/legal.js`; legally uncertain lines are marked `NEEDS REVIEW`.
+- This is a **concept site for a fictional studio**. All business details (`BUSINESS`, `TERMS`, `PRIVACY` in `src/lib/data.js`) are invented; the phone number is unassigned and the email uses a reserved example domain. The footer says "Concept site, fictional studio". Legal texts are in `src/i18n/legal.js`.
 
-## Before going live
+## If it ever goes live for real
 
-- Fill in every `[PLACEHOLDER]` in `BUSINESS`, `TERMS` and `PRIVACY` (`src/lib/data.js`) and resolve the `NEEDS REVIEW` notes in `src/i18n/legal.js`.
+- If this becomes a real business: replace everything in `BUSINESS`, `TERMS` and `PRIVACY`, remove "Concept site, fictional studio" from the footer, and have the legal texts checked (nFADP, plus GDPR if EU clients are targeted).
 - Confirm or replace the prototype values: prices, durations and lash specs (`SERVICES`, `REFILLS`, `VOUCHER_AMOUNTS`), opening hours (`HOURS`), the artist's first name "Léa" and her story, years/sets numbers and certifications (`about` in translations), "Most booked" on Hybrid, "Free" patch test.
 - The gallery and style guide use AI illustrations. Real client photos need the client's written consent.
 - Reviews were removed. Add real Google reviews only with permission.

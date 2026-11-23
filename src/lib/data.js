@@ -59,21 +59,22 @@ export const HOURS = [null, null, [9, 19], [9, 19], [10, 20], [9, 19], [9, 16]]
 export const VOUCHER_AMOUNTS = [95, 150, 200]
 
 // Business identity, used by the footer, imprint, privacy policy, terms and
-// calendar files. Every [BRACKETED] value is a placeholder: fill in the real
-// details before going live (see README → Before going live).
+// calendar files. This is a concept site: the studio and every detail below
+// are fictional. The phone number is unassigned in Switzerland and the email
+// uses a reserved example domain, so no real person receives messages.
 export const BUSINESS = {
   tradeName: 'Atelier Cils',
-  legalName: '[LEGAL BUSINESS NAME]',
-  owner: '[OWNER FULL NAME]',
-  legalForm: '[LEGAL FORM, e.g. sole proprietorship]',
-  uid: '[UID / CHE NUMBER, if registered]',
-  street: '[STREET AND NUMBER]',
-  city: '[POSTCODE AND CITY]',
-  directions: '[FLOOR, BUZZER AND PUBLIC TRANSPORT]',
-  phone: '[PHONE NUMBER]',
-  email: '[CONTACT EMAIL]',
-  whatsappNumber: '[WHATSAPP NUMBER, digits only]',
-  instagramUrl: '[INSTAGRAM PROFILE URL]',
+  legalName: 'Atelier Cils, Léa Morand',
+  owner: 'Léa Morand',
+  legalForm: 'Sole proprietorship',
+  uid: 'Not registered (below the commercial register threshold)',
+  street: 'Rue de Bourg 12',
+  city: '1003 Lausanne',
+  directions: '2nd floor, buzzer “Cils” · Metro M2, Flon or Bessières',
+  phone: '+41 21 000 12 34',
+  email: 'bonjour@atelier-cils.example',
+  whatsappNumber: '41210001234',
+  instagramUrl: 'https://www.instagram.com/',
 }
 
 export const STUDIO_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city}`
@@ -81,29 +82,29 @@ export const STUDIO_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city}`
 // Booking and voucher terms shown on the site and in the Terms page.
 // Placeholders until the owner decides the real rules.
 export const TERMS = {
-  confirmation: '[HOW A BOOKING IS CONFIRMED, e.g. by email within 24 hours]',
-  deposit: '[DEPOSIT AMOUNT AND WHEN IT IS DUE, or "no deposit"]',
-  cancelNotice: '[FREE CANCELLATION NOTICE, e.g. 24 hours]',
-  lateCancel: '[WHAT HAPPENS ON LATE CANCELLATION OR NO-SHOW]',
-  late: '[LATE ARRIVAL RULE]',
-  refill: '[REFILL CONDITIONS]',
-  payment: '[ACCEPTED PAYMENT METHODS]',
-  vat: '[VAT STATUS, e.g. "not subject to VAT" or "prices include 8.1 % VAT"]',
-  complaints: '[COMPLAINT PERIOD AND WHAT IS OFFERED, e.g. free fix within X days]',
-  voucherValidity: '[VOUCHER VALIDITY]',
-  voucherRefund: '[VOUCHER REFUND AND EXCHANGE RULES]',
-  jurisdiction: '[PLACE OF JURISDICTION]',
+  confirmation: 'by email, straight after you book',
+  deposit: 'CHF 30 for full sets, paid by TWINT when you book. It comes off the final price. Refills, lifts and brows need no deposit',
+  cancelNotice: '24 hours',
+  lateCancel: 'Later cancellations and no-shows keep the deposit',
+  late: 'more than 15 minutes late and the treatment may be shortened or moved to another day',
+  refill: 'A refill needs at least 40 % of your set left and has to be within 3 weeks. Otherwise it is booked as a new full set',
+  payment: 'TWINT, Visa, Mastercard or cash, at the end of your visit',
+  vat: 'The studio is not subject to VAT, so prices are final',
+  complaints: 'Tell us within 72 hours and we fix lifted or missing lashes free of charge',
+  voucherValidity: '12 months',
+  voucherRefund: 'Vouchers can be used for any treatment and in several visits. They cannot be exchanged for cash',
+  jurisdiction: 'Lausanne',
 }
 
-// Privacy facts that depend on how the site is hosted and run.
+// Privacy facts that depend on how the site is hosted and run (fictional set-up).
 export const PRIVACY = {
-  hosting: '[HOSTING PROVIDER AND COUNTRY]',
-  logRetention: '[SERVER LOG RETENTION PERIOD]',
-  processor: '[BOOKING / EMAIL SERVICE PROVIDER AND COUNTRY]',
-  bookingRetention: '[HOW LONG BOOKING DATA IS KEPT]',
-  voucherRetention: '[HOW LONG VOUCHER RECORDS ARE KEPT]',
-  consultationNotes: '[HOW CONSULTATION / PATCH-TEST NOTES ARE KEPT AND FOR HOW LONG]',
-  lastUpdated: '[LAST UPDATED DATE]',
+  hosting: 'Netlify, Inc. (USA)',
+  logRetention: '30 days',
+  processor: 'Supabase (booking database, servers in Frankfurt, Germany) and Resend (email delivery, USA)',
+  bookingRetention: '24 months after your last visit, then it is deleted',
+  voucherRetention: '10 years, because vouchers are accounting records',
+  consultationNotes: 'they are written on a paper card kept locked at the studio and destroyed 24 months after your last visit',
+  lastUpdated: '23 November 2026',
 }
 
 // Outgoing links. They only contact a third party when a visitor clicks them.
