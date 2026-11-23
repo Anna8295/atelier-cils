@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useLang } from '../../i18n/LanguageContext.jsx'
 import { useBooking } from '../../lib/context.js'
 import { Link } from 'react-router-dom'
-import { STUDIO_ADDRESS, TERMS } from '../../lib/data.js'
+import { STUDIO_ADDRESS } from '../../lib/data.js'
 import { fromISO, icsFile, slotsFor } from '../../lib/availability.js'
 import SectionHead from '../SectionHead.jsx'
 import useBookable from './useBookable.js'
@@ -21,9 +21,8 @@ const STEPS = ['service', 'date', 'details']
   step posts to the backend and availability reads real bookings.
 */
 export default function Booking() {
-  const { t, lang } = useLang()
+  const { t, locale } = useLang()
   const b = t.booking
-  const locale = lang === 'en' ? 'en-GB' : lang
   const { service, setService } = useBooking()
   const bookable = useBookable()
 
@@ -178,7 +177,7 @@ export default function Booking() {
             <span className="bk-policy-toggle">{b.policyToggle}</span>
           </summary>
           <ul>
-            {b.policies(TERMS).map(([k, v]) => (
+            {b.policies(t.terms).map(([k, v]) => (
               <li key={k}>
                 <span className="k">{k}</span>
                 <span>{v}</span>

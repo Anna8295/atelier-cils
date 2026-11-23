@@ -27,7 +27,7 @@ export default function StyleGuide() {
   const result = answered === qs.length ? suggest(answers) : null
   const resultName = result ? t.services.items[result]?.name ?? g.styles[result].tab : null
   const shown = peek && style !== 'natural' ? 'natural' : style
-  const info = STYLE_BY_ID[style]
+  const info = g.styles[style]
 
   const answer = (qid, v) => {
     const next = { ...answers, [qid]: v }
@@ -118,7 +118,7 @@ export default function StyleGuide() {
                   <div className="result-body">
                     <strong>{resultName}</strong>
                     <p>{g.quiz.why[result]}</p>
-                    <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(result)}>
+                    <a className="btn accent" href="#book" data-cursor={t.cursor.book} onClick={() => setService(result)}>
                       {g.quiz.book(resultName)}
                     </a>
                   </div>

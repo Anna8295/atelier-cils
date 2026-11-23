@@ -106,7 +106,7 @@ export default function Footer() {
               <span className="foot-k"><HubIcon id="pin" className="foot-icon" />{c.studio}</span>
               <p>{BUSINESS.street}</p>
               <p>{BUSINESS.city}</p>
-              <p className="foot-muted">{BUSINESS.directions}</p>
+              <p className="foot-muted">{t.biz.directions}</p>
               <a className="foot-link" href={CONTACT.maps} target="_blank" rel="noopener noreferrer">{c.directions}</a>
             </div>
 
@@ -138,7 +138,7 @@ export default function Footer() {
             </div>
 
             <div className="foot-col foot-cta">
-              <a className="btn accent" href="#book" data-cursor="Book">{t.nav.book}</a>
+              <a className="btn accent" href="#book" data-cursor={t.cursor.book}>{t.nav.book}</a>
               <Link className="foot-link" to="/gift">{f.vouchers}</Link>
               <Link className="foot-link" to="/visit#faq">{f.faq}</Link>
             </div>
@@ -146,7 +146,7 @@ export default function Footer() {
 
           <div className="foot-row">
             <span>{f.rights(YEAR, BUSINESS)}</span>
-            <nav aria-label="Legal">
+            <nav aria-label={f.legalLabel}>
               <Link to="/imprint">{f.imprint}</Link>
               <Link to="/privacy">{f.privacy}</Link>
               <Link to="/terms">{f.terms}</Link>

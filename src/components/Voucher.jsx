@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
-import { TERMS, VOUCHER_AMOUNTS } from '../lib/data.js'
+import { VOUCHER_AMOUNTS } from '../lib/data.js'
 import { gsap, prefersReducedMotion } from '../lib/motion.js'
 import SectionHead from './SectionHead.jsx'
 import HubIcon from './HubIcon.jsx'
@@ -109,7 +109,7 @@ export default function Voucher() {
                     {form.from.trim() && <span className="from">{v.from} {form.from.trim()}</span>}
                     {form.message.trim() && <span className="note">“{form.message.trim()}”</span>}
                   </div>
-                  <span className="valid">{v.valid(TERMS.voucherValidity)}</span>
+                  <span className="valid">{v.valid(t.terms.voucherValidity)}</span>
                 </div>
               </div>
             </div>

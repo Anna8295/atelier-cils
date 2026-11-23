@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
-import { legal } from '../i18n/legal.js'
+import { legalFor } from '../i18n/legal.js'
 
 // Privacy policy, terms and imprint share this plain, readable layout.
 export default function LegalPage({ id }) {
-  const { t } = useLang()
-  const doc = legal[id]
+  const { t, lang } = useLang()
+  const doc = legalFor(lang, t)[id]
 
   useEffect(() => {
     const before = document.title

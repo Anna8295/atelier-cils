@@ -108,7 +108,7 @@ export default function Services() {
               : {
                   as: 'a',
                   href: '#book',
-                  'data-cursor': img ? undefined : 'Book',
+                  'data-cursor': img ? undefined : t.cursor.book,
                   onMouseEnter: () => setActive(svc.id),
                   onClick: () => setService(svc.id),
                 }
@@ -132,7 +132,7 @@ export default function Services() {
                     <span className="d">{txt.desc}</span>
                     <span className="spec">
                       <span className="m-only">{svc.minutes} min · </span>
-                      {svc.ratio} · {svc.tags.join(' · ')}
+                      {txt.ratio} · {txt.tags.join(' · ')}
                     </span>
                   </span>
                   <span className="menu-time">{svc.minutes} min</span>
@@ -152,7 +152,7 @@ export default function Services() {
                         )}
                         <div className="peek-foot">
                           <span className="peek-meta">{svc.minutes} min · CHF {svc.price}</span>
-                          <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(svc.id)}>
+                          <a className="btn accent" href="#book" data-cursor={t.cursor.book} onClick={() => setService(svc.id)}>
                             {s.bookName(txt.name)}
                           </a>
                         </div>

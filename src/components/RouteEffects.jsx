@@ -11,7 +11,7 @@ export default function RouteEffects() {
   const navigate = useNavigate()
   // current route, readable inside the click handler (paths are relative to the base)
   const here = useRef(pathname)
-  here.current = pathname
+  useEffect(() => { here.current = pathname }, [pathname])
 
   useEffect(() => {
     const onClick = (e) => {

@@ -39,7 +39,7 @@ export default function GoodToKnow() {
           {HUB.map(({ id, to }) => {
             const it = h.items[id]
             return (
-              <Link key={id} to={to} className="hub-card" data-cursor="Open">
+              <Link key={id} to={to} className="hub-card" data-cursor={t.cursor.open}>
                 <HubIcon id={id} />
                 <span className="meta">{it.meta}</span>
                 <h3>{it.title}</h3>

@@ -37,7 +37,7 @@ function refillStatus(value, a, locale) {
 }
 
 export default function Aftercare() {
-  const { t, lang } = useLang()
+  const { t, locale } = useLang()
   const { setService } = useBooking()
   const a = t.aftercare
   const [date, setDate] = useState(() => isoDaysAgo(12))
@@ -56,7 +56,7 @@ export default function Aftercare() {
     }, listRef)
     return () => ctx.revert()
   }, [])
-  const { msg, pct, windowIso } = refillStatus(date, a, lang === 'en' ? 'en-GB' : lang)
+  const { msg, pct, windowIso } = refillStatus(date, a, locale)
 
   // "Add a reminder": a 10:00 calendar event on the day the refill window opens
   const reminder = useMemo(() => {
@@ -105,7 +105,7 @@ export default function Aftercare() {
               {msg[1]}
             </p>
             <div className="calc-ctas">
-              <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService('refill2')}>
+              <a className="btn accent" href="#book" data-cursor={t.cursor.book} onClick={() => setService('refill2')}>
                 {a.book}
               </a>
               {reminder && <a className="btn ghost" href={reminder} download="lash-refill-reminder.ics">{a.remind}</a>}

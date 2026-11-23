@@ -149,13 +149,13 @@ export default function Hero() {
         </h1>
         <div className="hero-row">
           <div className="hero-ctas">
-            <a className="btn light" href="#book" data-cursor="Book">{t.hero.book}</a>
-            <a className="btn outline-light" href="#services" data-cursor="View">{t.hero.prices}</a>
+            <a className="btn light" href="#book" data-cursor={t.cursor.book}>{t.hero.book}</a>
+            <a className="btn outline-light" href="#services" data-cursor={t.cursor.view}>{t.hero.prices}</a>
           </div>
         </div>
       </div>
 
-      <a className="badge" href="#book" data-cursor="Book" aria-label={t.hero.badge}>
+      <a className="badge" href="#book" data-cursor={t.cursor.book} aria-label={t.hero.badge}>
         <svg className="ring" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
             <path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />

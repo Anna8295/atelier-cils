@@ -6,12 +6,13 @@ import SectionHead from './SectionHead.jsx'
 
 const FILTERS = ['all', 'classic', 'hybrid', 'volume', 'lift']
 
-function BeforeAfter({ item }) {
+function BeforeAfter({ item: base }) {
   const { t } = useLang()
+  const item = { ...base, ...t.gallery.items[base.id] }
   const [x, setX] = useState(50)
   return (
     <figure className="g-item" style={{ margin: 0 }}>
-      <div className="ba" data-cursor="Slide" style={{ '--x': `${x}%` }}>
+      <div className="ba" data-cursor={t.cursor.slide} style={{ '--x': `${x}%` }}>
         <img className="before" src={STYLE_BY_ID.natural.img} alt={t.gallery.naturalAlt} draggable="false" />
         <img className="after" src={STYLE_BY_ID[item.id].img} alt={t.gallery.alt(item.name)} draggable="false" />
         <span className="divider" />

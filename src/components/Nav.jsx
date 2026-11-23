@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { LANGS } from '../i18n/translations.js'
-import { useToast } from '../lib/context.js'
 
 // "#…" = section on the home page, "/…" = detail page
 const LINKS = [
@@ -16,8 +15,7 @@ const LINKS = [
 // On the home page the nav hides over the hero film and slides in once the
 // visitor scrolls. On detail pages it is always shown.
 export default function Nav() {
-  const { t, lang, setLang, has } = useLang()
-  const toast = useToast()
+  const { t, lang, setLang } = useLang()
   const { pathname } = useLocation()
   const isHome = pathname === '/'
 
@@ -27,11 +25,6 @@ export default function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [isHome])
-
-  const pickLang = (code) => {
-    setLang(code)
-    if (!has(code)) toast(t.nav.langSoon(code.toUpperCase()))
-  }
 
   return (
     <header className="nav">
@@ -47,14 +40,14 @@ export default function Nav() {
           ))}
         </ul>
         <div className="nav-r">
-          <div className="lang" role="group" aria-label="Language">
+          <div className="lang" role="group" aria-label={t.nav.language}>
             {LANGS.map((code) => (
-              <button key={code} type="button" aria-pressed={lang === code} onClick={() => pickLang(code)}>
+              <button key={code} type="button" aria-pressed={lang === code} onClick={() => setLang(code)}>
                 {code.toUpperCase()}
               </button>
             ))}
           </div>
-          <a className="btn accent" href="#book" data-cursor="Book">
+          <a className="btn accent" href="#book" data-cursor={t.cursor.book}>
             {t.nav.book}
           </a>
         </div>
