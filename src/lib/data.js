@@ -22,7 +22,6 @@ export const REFILLS = [
   { id: 'refill3', weeks: 3, price: 80, minutes: 75 },
 ]
 
-export const STUDIO_ADDRESS = 'Rue de Bourg 12, 1003 Lausanne'
 
 // style guide: same eye, different lashes
 export const STYLES = [
@@ -59,11 +58,31 @@ export const HOURS = [null, null, [9, 19], [9, 19], [10, 20], [9, 19], [9, 16]]
 
 export const VOUCHER_AMOUNTS = [95, 150, 200]
 
+// Business identity, used by the footer, imprint, privacy policy, terms and
+// calendar files. Every [BRACKETED] value is a placeholder: fill in the real
+// details before going live (see README → Before going live).
+export const BUSINESS = {
+  tradeName: 'Atelier Cils',
+  legalName: '[LEGAL BUSINESS NAME]',
+  owner: '[OWNER FULL NAME]',
+  legalForm: '[LEGAL FORM, e.g. sole proprietorship]',
+  uid: '[UID / CHE NUMBER, if registered]',
+  street: '[STREET AND NUMBER]',
+  city: '[POSTCODE AND CITY]',
+  directions: '[FLOOR, BUZZER AND PUBLIC TRANSPORT]',
+  phone: '[PHONE NUMBER]',
+  email: '[CONTACT EMAIL]',
+  whatsappNumber: '[WHATSAPP NUMBER, digits only]',
+  instagramUrl: '[INSTAGRAM PROFILE URL]',
+}
+
+export const STUDIO_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city}`
+
+// Outgoing links. They only contact a third party when a visitor clicks them.
 export const CONTACT = {
-  phone: '+41 79 123 45 67',
-  whatsapp: 'https://wa.me/41791234567',
-  instagram: 'https://www.instagram.com/',
-  maps: 'https://maps.google.com/?q=Rue+de+Bourg+12+Lausanne',
-  booking: 'https://www.fresha.com/',
-  coords: '46.5216° N · 6.6334° E',
+  phone: BUSINESS.phone,
+  email: BUSINESS.email,
+  whatsapp: `https://wa.me/${BUSINESS.whatsappNumber}`,
+  instagram: BUSINESS.instagramUrl,
+  maps: `https://maps.google.com/?q=${encodeURIComponent(STUDIO_ADDRESS)}`,
 }

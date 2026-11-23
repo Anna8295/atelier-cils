@@ -135,7 +135,7 @@ export const translations = {
     about: {
       titleA: 'Meet ',
       titleEm: 'Léa.',
-      caption: 'Léa Morand · lash artist, Lausanne',
+      caption: (owner) => `${owner} · lash artist`,
       story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid, gently and precisely. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
       facts: [
         { n: '7', label: 'years doing lashes full time' },
@@ -308,9 +308,6 @@ export const translations = {
       studio: 'Studio',
       hours: 'Opening hours',
       contact: 'Contact',
-      street: 'Rue de Bourg 12',
-      city: '1003 Lausanne · 2nd floor, buzzer “Cils”',
-      metro: 'Metro M2, Flon or Bessières · 4 min walk',
       daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       closed: 'Closed',
       today: 'today',
@@ -324,7 +321,7 @@ export const translations = {
     },
 
     footer: {
-      rights: '© 2026 Atelier Cils · Léa Morand · Lausanne',
+      rights: (year, b) => `© ${year} ${b.tradeName} · ${b.owner}`,
       imprint: 'Impressum',
       privacy: 'Privacy policy',
       vouchers: 'Gift vouchers',

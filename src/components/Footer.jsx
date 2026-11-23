@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { useToast } from '../lib/context.js'
-import { CONTACT, HOURS } from '../lib/data.js'
+import { BUSINESS, CONTACT, HOURS } from '../lib/data.js'
 import { gsap, prefersReducedMotion } from '../lib/motion.js'
 import HubIcon from './HubIcon.jsx'
 
@@ -94,9 +94,9 @@ export default function Footer() {
           <div className="foot-grid">
             <div className="foot-col">
               <span className="foot-k"><HubIcon id="pin" className="foot-icon" />{c.studio}</span>
-              <p>{c.street}</p>
-              <p>{c.city}</p>
-              <p className="foot-muted">{c.metro}</p>
+              <p>{BUSINESS.street}</p>
+              <p>{BUSINESS.city}</p>
+              <p className="foot-muted">{BUSINESS.directions}</p>
               <a className="foot-link" href={CONTACT.maps} target="_blank" rel="noopener noreferrer">{c.directions}</a>
             </div>
 
@@ -134,7 +134,7 @@ export default function Footer() {
           </div>
 
           <div className="foot-row">
-            <span>{f.rights}</span>
+            <span>{f.rights(new Date().getFullYear(), BUSINESS)}</span>
             <nav aria-label="Legal">
               <a href="#top">{f.imprint}</a>
               <a href="#top">{f.privacy}</a>

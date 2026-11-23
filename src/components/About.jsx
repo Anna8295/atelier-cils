@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLang } from '../i18n/LanguageContext.jsx'
-import { STYLE_BY_ID } from '../lib/data.js'
+import { BUSINESS, STYLE_BY_ID } from '../lib/data.js'
 import { gsap, prefersReducedMotion } from '../lib/motion.js'
 import SectionHead from './SectionHead.jsx'
 import HubIcon from './HubIcon.jsx'
@@ -63,7 +63,7 @@ export default function About() {
             <div className="portrait">
               <img src={PORTRAIT} alt="" />
             </div>
-            <figcaption>{a.caption}</figcaption>
+            <figcaption>{a.caption(BUSINESS.owner)}</figcaption>
           </figure>
 
           <div>
