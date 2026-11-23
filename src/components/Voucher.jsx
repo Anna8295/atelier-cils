@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { TERMS, VOUCHER_AMOUNTS } from '../lib/data.js'
 import { gsap, prefersReducedMotion } from '../lib/motion.js'
@@ -160,6 +161,7 @@ export default function Voucher() {
                 </div>
                 <div>
                   <button className="btn accent" type="submit">{v.submit} · CHF {amount}</button>
+                  <p className="form-purpose">{v.purpose} <Link to="/privacy">{v.privacy}</Link></p>
                 </div>
               </form>
             )}

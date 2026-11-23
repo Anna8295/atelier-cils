@@ -148,6 +148,7 @@ export default function Booking() {
                   <DetailsForm form={form} setForm={updateForm} errors={errors} f={b.form} />
                   <div className="bk-actions">
                     <button type="button" className="bk-back" onClick={() => setStep('date')}>{b.back}</button>
+                    <p className="form-purpose">{b.form.purpose} <Link to="/privacy">{b.form.privacy}</Link></p>
                     <button type="submit" className="btn accent">{b.confirm}</button>
                   </div>
                 </form>

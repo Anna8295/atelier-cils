@@ -381,7 +381,7 @@ p{margin:0}
 .bk-back{border:0;background:none;padding:8px 0;font:500 .85rem var(--f-body);color:var(--muted);cursor:pointer}
 .bk-back:hover{color:var(--ink)}
 .fields{display:grid;gap:16px}
-.field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
 .field{display:grid;gap:6px;min-width:0}
 .field label{font-weight:600;font-size:.88rem}
 .field input,.field textarea{font:500 1rem var(--f-body);padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%;resize:vertical}
@@ -566,3 +566,7 @@ footer.site{--f-bg:#140c10;--f-fg:#f8ecef;--f-dim:rgba(248,236,239,.6);--f-line:
 .legal-body p{color:var(--muted);margin-bottom:10px;max-width:68ch}
 .legal-body ul{margin:0;padding-left:20px;color:var(--muted);display:grid;gap:6px}
 .bk-terms{display:inline-block;margin-top:12px;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.field-hint{font-size:.78rem;color:var(--muted)}
+.form-purpose{font-size:.8rem;color:var(--muted);max-width:40ch}
+.form-purpose a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.vform .form-purpose{margin-top:10px}
