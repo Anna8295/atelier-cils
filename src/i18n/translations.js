@@ -11,7 +11,7 @@ export const translations = {
   en: {
     nav: {
       prices: 'Prices',
-      results: 'Results',
+      results: 'Styles',
       guide: 'Which lashes?',
       visit: 'Your visit',
       about: 'About',
@@ -121,12 +121,14 @@ export const translations = {
     },
 
     gallery: {
-      titleA: 'Drag to see ',
-      titleEm: 'the difference.',
+      // illustrations of each style on the same eye, not client results
+      titleA: 'Every style, ',
+      titleEm: 'side by side.',
       filters: { all: 'All', classic: 'Classic', hybrid: 'Hybrid', volume: 'Volume', lift: 'Lash lift' },
-      before: 'Before',
-      after: 'After',
-      compare: (name) => `Compare before and after: ${name}`,
+      natural: 'Natural',
+      alt: (name) => `Illustration of ${name} lashes on the same eye`,
+      naturalAlt: 'Illustration of natural lashes',
+      compare: (name) => `Compare natural lashes with ${name}`,
       instagram: 'More on Instagram ↗',
     },
 

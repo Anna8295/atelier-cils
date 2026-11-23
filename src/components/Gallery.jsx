@@ -12,11 +12,11 @@ function BeforeAfter({ item }) {
   return (
     <figure className="g-item" style={{ margin: 0 }}>
       <div className="ba" data-cursor="Slide" style={{ '--x': `${x}%` }}>
-        <img className="before" src={STYLE_BY_ID.natural.img} alt={`${t.gallery.before}: natural lashes`} draggable="false" />
-        <img className="after" src={STYLE_BY_ID[item.id].img} alt={`${t.gallery.after}: ${item.name}`} draggable="false" />
+        <img className="before" src={STYLE_BY_ID.natural.img} alt={t.gallery.naturalAlt} draggable="false" />
+        <img className="after" src={STYLE_BY_ID[item.id].img} alt={t.gallery.alt(item.name)} draggable="false" />
         <span className="divider" />
-        <span className="lbl l">{t.gallery.before}</span>
-        <span className="lbl r">{t.gallery.after}</span>
+        <span className="lbl l">{t.gallery.natural}</span>
+        <span className="lbl r">{item.name}</span>
         <input type="range" min="0" max="100" value={x} onChange={(e) => setX(+e.target.value)} aria-label={t.gallery.compare(item.name)} />
       </div>
       <figcaption className="ba-cap">
