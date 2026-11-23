@@ -14,6 +14,30 @@ npm run preview   # serve the build
 npm run lint      # oxlint
 ```
 
+## Tests
+
+```bash
+npm test               # everything: unit + end-to-end
+npm run test:unit      # Vitest: unit and component tests
+npm run test:watch     # Vitest in watch mode while coding
+npm run test:coverage  # Vitest with a coverage report (coverage/index.html)
+npm run test:e2e       # Playwright: end-to-end + accessibility, desktop and phone
+npm run test:e2e:ui    # Playwright's interactive UI
+```
+
+The first time, install the test browser with `npx playwright install chromium`.
+
+| Layer | Tool | Where | What it checks |
+| --- | --- | --- | --- |
+| Unit | Vitest | `src/lib/*.test.js`, `src/components/booking/form.test.js` | Free times always fit the opening hours and miss other bookings, closed and past days, 2 h notice, calendar files in Lausanne time, form validation, every service/style/card has its text, no placeholders left. |
+| Component | Vitest + React Testing Library (jsdom) | `src/components/**/*.test.jsx` | The quiz suggestions, hold to compare, the whole booking flow, the voucher form and live card, the refill calculator, opening hours in Lausanne time, footer links and phone copy. |
+| End-to-end | Playwright (Chromium, desktop and Pixel 7) | `e2e/` | The production build in a real browser: no console errors or missing files, nothing loaded from other websites, no cookies or storage, no sideways scrolling, navigation, booking with the calendar download, every detail and legal page, the hero intro with motion on and off. |
+| Accessibility | axe-core in Playwright | `e2e/accessibility.spec.js` | WCAG 2.1 AA on every page, the booking form with errors and the quiz result, plus the quiz and FAQ by keyboard. |
+
+Component tests describe behaviour the way a visitor sees it (labels, roles, text), so they survive restyling. Most end-to-end tests run with reduced motion so they are fast and stable; `e2e/motion.spec.js` checks the animated intro.
+
+On GitHub, every push and pull request runs lint and the whole suite (`.github/workflows/test.yml`). The Playwright report, with traces and screenshots of anything that failed, is uploaded as a build artifact.
+
 ## Pages
 
 The home page has one job: show results and get the booking. Supporting info has its own pages, opened from the "Good to know" cards and the nav.
