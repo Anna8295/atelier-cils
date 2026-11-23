@@ -32,7 +32,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <LanguageProvider>
         <ToastProvider>
           <BookingContext.Provider value={{ service, setService }}>

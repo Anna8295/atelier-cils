@@ -75,8 +75,16 @@ test.describe('navigation', () => {
     await expect(page).toHaveURL(/\/$/)
   })
 
+  // GitHub Pages serves 404.html for any address it doesn't know (e.g. /atelier-cils/visit);
+  // it must be the app itself so opening or refreshing a page still works
+  test('ships a 404.html that is the app itself', async ({ page }) => {
+    const [fallback, index] = await Promise.all([page.request.get('404.html'), page.request.get('')])
+    expect(fallback.status()).toBe(200)
+    expect(await fallback.text()).toBe(await index.text())
+  })
+
   test('sends unknown addresses to the home page', async ({ page }) => {
-    await page.goto('/does-not-exist')
+    await page.goto('does-not-exist')
     await expect(page).toHaveURL(/\/$/)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   })

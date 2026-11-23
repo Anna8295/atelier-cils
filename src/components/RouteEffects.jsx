@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ScrollTrigger, scrollToHash, scrollToTop, setupHeadingReveals } from '../lib/motion.js'
 
@@ -9,6 +9,9 @@ import { ScrollTrigger, scrollToHash, scrollToTop, setupHeadingReveals } from '.
 export default function RouteEffects() {
   const { pathname, hash } = useLocation()
   const navigate = useNavigate()
+  // current route, readable inside the click handler (paths are relative to the base)
+  const here = useRef(pathname)
+  here.current = pathname
 
   useEffect(() => {
     const onClick = (e) => {
@@ -17,7 +20,7 @@ export default function RouteEffects() {
       if (!a) return
       e.preventDefault()
       const h = a.getAttribute('href')
-      if (window.location.pathname !== '/') navigate('/' + h)
+      if (here.current !== '/') navigate('/' + h)
       else scrollToHash(h)
     }
     document.addEventListener('click', onClick)

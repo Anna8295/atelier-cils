@@ -12,7 +12,8 @@ export default defineConfig({
   retries: CI ? 1 : 0,
   reporter: CI ? [['github'], ['html', { open: 'never' }]] : [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: `http://localhost:${PORT}/`,
+    // same sub-folder as on GitHub Pages
+    baseURL: `http://localhost:${PORT}/atelier-cils/`,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     // Most tests run with reduced motion: no smooth scrolling, no intro wait,
@@ -25,7 +26,7 @@ export default defineConfig({
   ],
   webServer: {
     command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
-    url: `http://localhost:${PORT}/`,
+    url: `http://localhost:${PORT}/atelier-cils/`,
     reuseExistingServer: !CI,
     timeout: 120_000,
   },

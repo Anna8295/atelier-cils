@@ -58,7 +58,7 @@ test.describe('booking', () => {
   })
 
   test('the booking policy opens and links to the full terms', async ({ page }) => {
-    await page.goto('/#book')
+    await page.goto('#book')
     await page.getByText('Booking policy').click()
     await expect(page.getByText(/Free up to 24 hours before/)).toBeVisible()
     await page.getByRole('link', { name: 'Full booking terms' }).click()

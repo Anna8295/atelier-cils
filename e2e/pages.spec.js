@@ -15,12 +15,12 @@ test.describe('detail and legal pages', () => {
   }
 
   test('a link to the FAQ lands on the questions', async ({ page }) => {
-    await page.goto('/visit#faq')
+    await page.goto('visit#faq')
     await expect(page.getByRole('heading', { name: /Questions we get every day/ })).toBeInViewport()
   })
 
   test('the footer links to the legal pages from every page', async ({ page }) => {
-    await page.goto('/about')
+    await page.goto('about')
     await page.getByRole('link', { name: 'Imprint' }).click()
     await expect(page).toHaveURL(/\/imprint$/)
     await page.getByRole('link', { name: 'Privacy policy' }).click()
@@ -29,7 +29,7 @@ test.describe('detail and legal pages', () => {
   })
 
   test('the Book now button on a detail page goes to booking on the home page', async ({ page }) => {
-    await page.goto('/aftercare')
+    await page.goto('aftercare')
     await page.locator('.book-band').getByRole('link', { name: 'Book now' }).click()
     await expect(page).toHaveURL(/\/#book$/)
     await expect(page.locator('#book')).toBeInViewport()
@@ -38,7 +38,7 @@ test.describe('detail and legal pages', () => {
 
 test.describe('which lashes suit me?', () => {
   test('the quiz suggests a style and switches the photo', async ({ page }) => {
-    await page.goto('/style')
+    await page.goto('style')
     await page.getByRole('group', { name: /What look do you want/ }).getByRole('button', { name: 'Full glam' }).click()
     await page.getByRole('group', { name: /Your natural lashes are/ }).getByRole('button', { name: 'Average' }).click()
     await page.getByRole('group', { name: /Do you wear mascara/ }).getByRole('button', { name: 'Every day' }).click()
@@ -48,7 +48,7 @@ test.describe('which lashes suit me?', () => {
   })
 
   test('holding the photo shows the natural lashes', async ({ page }) => {
-    await page.goto('/style')
+    await page.goto('style')
     const photo = page.locator('.guide-eye')
     await photo.dispatchEvent('pointerdown')
     await expect(photo.locator('.tag')).toHaveText('Your lashes')
@@ -59,7 +59,7 @@ test.describe('which lashes suit me?', () => {
 
 test.describe('gift vouchers', () => {
   test('a voucher request from form to confirmation', async ({ page }) => {
-    await page.goto('/gift')
+    await page.goto('gift')
     await page.getByRole('button', { name: /CHF 200/ }).click()
     await page.getByLabel('Who is it for?').fill('Camille')
     await expect(page.locator('.vcard')).toContainText('Camille')
@@ -72,7 +72,7 @@ test.describe('gift vouchers', () => {
 
 test.describe('aftercare', () => {
   test('the refill calculator offers a reminder file', async ({ page }) => {
-    await page.goto('/aftercare')
+    await page.goto('aftercare')
     const today = new Date()
     today.setDate(today.getDate() - 5)
     await page.getByLabel('Date of your last set or refill').fill(today.toISOString().slice(0, 10))

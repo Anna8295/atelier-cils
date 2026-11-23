@@ -1,6 +1,8 @@
 # Atelier Cils
 
-One-page website for a lash artist in Lausanne: services and prices, a style guide with a quiz, before and after sliders, first visit, aftercare, FAQ, booking, gift vouchers and contact.
+Concept website for a fictional lash studio in Lausanne: prices, a style guide with a quiz, style comparisons, first visit, aftercare, FAQ, booking, gift vouchers and contact.
+
+**Live:** https://anna8295.github.io/atelier-cils/ (GitHub Pages)
 
 Built with React 19 + Vite 8. Motion uses GSAP (ScrollTrigger) with Lenis smooth scrolling.
 
@@ -8,11 +10,15 @@ Built with React 19 + Vite 8. Motion uses GSAP (ScrollTrigger) with Lenis smooth
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173
+npm run dev       # http://localhost:5173/atelier-cils/
 npm run build     # production build in dist/
 npm run preview   # serve the build
 npm run lint      # oxlint
 ```
+
+## Deploy
+
+Pushing to `main` runs lint and all tests and, only if they pass, builds the site and publishes it to GitHub Pages (`.github/workflows/deploy.yml`). The site is built for the `/atelier-cils/` sub-folder (`base` in `vite.config.js`, used by the router too), and the tests run against that same build.
 
 ## Tests
 
@@ -36,7 +42,7 @@ The first time, install the test browser with `npx playwright install chromium`.
 
 Component tests describe behaviour the way a visitor sees it (labels, roles, text), so they survive restyling. Most end-to-end tests run with reduced motion so they are fast and stable; `e2e/motion.spec.js` checks the animated intro.
 
-On GitHub, every push and pull request runs lint and the whole suite (`.github/workflows/test.yml`). The Playwright report, with traces and screenshots of anything that failed, is uploaded as a build artifact.
+On GitHub, every push and pull request runs lint and the whole suite (`.github/workflows/deploy.yml`). The Playwright report, with traces and screenshots of anything that failed, is uploaded as a build artifact.
 
 ## Pages
 
@@ -53,7 +59,7 @@ The home page has one job: show results and get the booking. Supporting info has
 | `/privacy`, `/terms`, `/imprint` | Privacy policy (with cookies), booking & voucher terms, imprint |
 
 Every detail page ends with a booking band. `#…` links (like `#book`) always lead to that section on the home page, from any page.
-`public/_redirects` sends every route to `index.html` on Netlify.
+The build also writes `404.html` (a copy of `index.html`), so GitHub Pages serves the app for any page address and opening or refreshing `/atelier-cils/visit` works.
 
 ## Where things live
 

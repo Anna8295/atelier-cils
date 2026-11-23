@@ -31,7 +31,7 @@ test.describe('accessibility', () => {
   })
 
   test('quiz with a result', async ({ page }) => {
-    await page.goto('/style')
+    await page.goto('style')
     for (const [q, a] of [['What look', 'Noticeable'], ['natural lashes', 'Average'], ['mascara', 'Never']]) {
       await page.getByRole('group', { name: new RegExp(q) }).getByRole('button', { name: a }).click()
     }
@@ -40,7 +40,7 @@ test.describe('accessibility', () => {
   })
 
   test('the quiz can be answered with the keyboard alone', async ({ page }) => {
-    await page.goto('/style')
+    await page.goto('style')
     const option = page.getByRole('group', { name: /What look/ }).getByRole('button', { name: 'Full glam' })
     await option.focus()
     await page.keyboard.press('Enter')
@@ -48,7 +48,7 @@ test.describe('accessibility', () => {
   })
 
   test('FAQ answers open with the keyboard', async ({ page }) => {
-    await page.goto('/visit')
+    await page.goto('visit')
     const question = page.locator('summary', { hasText: 'How long do extensions last?' })
     await question.focus()
     await page.keyboard.press('Enter')

@@ -43,13 +43,14 @@ export async function startBooking(page, service = 'Hybrid') {
   return booking
 }
 
+// paths are relative to the base URL (/atelier-cils/)
 export const PAGES = [
-  ['/style', 'Which lashes suit me?'],
-  ['/visit', 'What happens, step by step.'],
-  ['/aftercare', 'Make them last longer.'],
-  ['/about', 'Meet Léa.'],
-  ['/gift', 'Give someone a full set.'],
-  ['/privacy', 'Privacy policy'],
-  ['/terms', 'Booking and voucher terms'],
-  ['/imprint', 'Imprint'],
+  ['style', 'Which lashes suit me?'],
+  ['visit', 'What happens, step by step.'],
+  ['aftercare', 'Make them last longer.'],
+  ['about', 'Meet Léa.'],
+  ['gift', 'Give someone a full set.'],
+  ['privacy', 'Privacy policy'],
+  ['terms', 'Booking and voucher terms'],
+  ['imprint', 'Imprint'],
 ]

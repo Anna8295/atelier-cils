@@ -98,8 +98,8 @@ export const TERMS = {
 
 // Privacy facts that depend on how the site is hosted and run (fictional set-up).
 export const PRIVACY = {
-  hosting: 'Netlify, Inc. (USA)',
-  logRetention: '30 days',
+  hosting: 'GitHub Pages (GitHub, Inc., USA)',
+  logRetention: 'as long as GitHub needs them for security, as described in the GitHub Privacy Statement',
   processor: 'Supabase (booking database, servers in Frankfurt, Germany) and Resend (email delivery, USA)',
   bookingRetention: '24 months after your last visit, then it is deleted',
   voucherRetention: '10 years, because vouchers are accounting records',
