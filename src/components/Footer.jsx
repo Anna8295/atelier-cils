@@ -7,6 +7,7 @@ import { gsap, prefersReducedMotion } from '../lib/motion.js'
 import HubIcon from './HubIcon.jsx'
 
 const ORDER = [1, 2, 3, 4, 5, 6, 0] // Monday first
+const YEAR = new Date().getFullYear()
 const pad = (h) => String(h).padStart(2, '0') + ':00'
 
 // weekday and minutes in Lausanne, whatever the visitor's time zone
@@ -134,10 +135,11 @@ export default function Footer() {
           </div>
 
           <div className="foot-row">
-            <span>{f.rights(new Date().getFullYear(), BUSINESS)}</span>
+            <span>{f.rights(YEAR, BUSINESS)}</span>
             <nav aria-label="Legal">
-              <a href="#top">{f.imprint}</a>
-              <a href="#top">{f.privacy}</a>
+              <Link to="/imprint">{f.imprint}</Link>
+              <Link to="/privacy">{f.privacy}</Link>
+              <Link to="/terms">{f.terms}</Link>
             </nav>
           </div>
         </div>

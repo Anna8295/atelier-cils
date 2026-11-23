@@ -11,6 +11,7 @@ import VisitPage from './pages/VisitPage.jsx'
 import AftercarePage from './pages/AftercarePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import GiftPage from './pages/GiftPage.jsx'
+import LegalPage from './pages/LegalPage.jsx'
 import { LanguageProvider } from './i18n/LanguageContext.jsx'
 import { BookingContext } from './lib/context.js'
 import { ScrollTrigger, setupSmoothScroll } from './lib/motion.js'
@@ -45,6 +46,9 @@ function App() {
                 <Route path="/aftercare" element={<AftercarePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/gift" element={<GiftPage />} />
+                <Route path="/privacy" element={<LegalPage id="privacy" key="privacy" />} />
+                <Route path="/terms" element={<LegalPage id="terms" key="terms" />} />
+                <Route path="/imprint" element={<LegalPage id="imprint" key="imprint" />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
