@@ -45,6 +45,15 @@ function groupHours(c, wd) {
   }))
 }
 
+// "Open Tue – Sat · closed Sun & Mon", for the compact phone footer
+function hoursSummary(c) {
+  const open = ORDER.filter((d) => HOURS[d])
+  const closed = [0, 1, 2, 3, 4, 5, 6].filter((d) => !HOURS[d])
+  const contiguous = open.every((d, i) => i === 0 || ORDER.indexOf(d) === ORDER.indexOf(open[i - 1]) + 1)
+  const openText = contiguous ? `${c.daysShort[open[0]]} – ${c.daysShort[open[open.length - 1]]}` : open.map((d) => c.daysShort[d]).join(', ')
+  return c.hoursShort(openText, closed.map((d) => c.daysShort[d]).join(' & '))
+}
+
 // Footer on every page: the wordmark, then studio, opening hours, contact,
 // booking, and the legal links.
 export default function Footer() {
@@ -103,6 +112,7 @@ export default function Footer() {
 
             <div className="foot-col">
               <span className="foot-k"><HubIcon id="clock" className="foot-icon" />{c.hours}</span>
+              <p className="foot-hours-short">{hoursSummary(c)}</p>
               <ul className="foot-hours">
                 {groupHours(c, now.wd).map((g) => (
                   <li key={g.days} className={g.today ? 'today' : ''}>

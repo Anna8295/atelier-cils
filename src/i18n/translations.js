@@ -322,6 +322,7 @@ export const translations = {
       contact: 'Contact',
       daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       closed: 'Closed',
+      hoursShort: (open, closed) => `Open ${open} · closed ${closed}`,
       today: 'today',
       tomorrow: 'tomorrow',
       openNow: (until) => `Open now · until ${until}`,
