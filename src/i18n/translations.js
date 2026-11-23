@@ -35,7 +35,7 @@ export const translations = {
     services: {
       titleA: 'Pick your set. ',
       titleEm: 'Prices included.',
-      lede: 'Every full set includes a consultation, a lash map drawn for your eye shape, and a free check-up within 72 hours if anything feels off.',
+      lede: 'Every full set starts with a short consultation and a lash map drawn for your eye shape.',
       book: 'Book',
       popular: 'Most booked',
       items: {
@@ -136,7 +136,7 @@ export const translations = {
       titleA: 'Meet ',
       titleEm: 'Léa.',
       caption: 'Léa Morand · lash artist, Lausanne',
-      story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid without you feeling a thing. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
+      story: "I'm Léa. I've spent seven years learning how to place a lash 1 mm from the lid, gently and precisely. I work alone, I work slowly, and I only use glue I'd put on my own eyes.",
       facts: [
         { n: '7', label: 'years doing lashes full time' },
         { n: '3 800+', label: 'sets and refills done' },
@@ -156,7 +156,7 @@ export const translations = {
           icon: 'shield',
           title: 'Products & hygiene',
           items: [
-            ['Sensitive-eye adhesive, latex and formaldehyde free', 'every set'],
+            ['Adhesive made for sensitive eyes', 'every set'],
             ['Free patch test before a first set', 'on request'],
             ['Single-use brushes, sterilised tweezers', 'every client'],
           ],
@@ -181,7 +181,7 @@ export const translations = {
     aftercare: {
       titleA: 'Make them ',
       titleEm: 'last longer.',
-      lede: 'Five small habits keep a set full for three to four weeks.',
+      lede: 'Five small habits help your set stay full for longer.',
       timeline: [
         ['0–24 h', 'Keep them dry', 'No water, steam, sauna or swimming while the glue fully cures.'],
         ['Daily', 'Clean and brush', 'Wash with lash foam and a soft brush, pat dry, then brush through with the spoolie.'],
@@ -210,12 +210,12 @@ export const translations = {
       lede: 'Still unsure? Send a WhatsApp message and Léa replies the same day.',
       ask: 'Ask on WhatsApp ↗',
       items: [
-        ['Does it hurt?', 'No. Extensions are glued to your natural lash about 1 mm from the skin, never to the eyelid. You keep your eyes closed the whole time. Most people fall asleep.'],
+        ['Does it hurt?', "It shouldn't. Extensions are attached to your natural lash about 1 mm from the skin, never to the eyelid, and you keep your eyes closed the whole time. If anything stings or feels uncomfortable, say so and Léa stops."],
         ['How long do extensions last?', 'They fall out with your natural lashes over 4 to 6 weeks. With refills every 2 to 3 weeks you can keep a full set as long as you like.'],
-        ['Will they damage my natural lashes?', "Not when they're applied correctly. We match the weight of each extension to the strength of your natural lash and never glue lashes together."],
-        ["What if I'm allergic?", 'We use a sensitive-eye adhesive. If you have reacted to glue before, or have very sensitive eyes, book a free patch test 48 hours ahead.'],
+        ['Will they damage my natural lashes?', "Applied correctly, they shouldn't. Léa matches the weight of each extension to your natural lash and never glues lashes together. Rubbing, pulling or removing extensions yourself can damage natural lashes."],
+        ["What if I'm allergic?", 'Léa uses an adhesive made for sensitive eyes, but no adhesive suits everyone. If you have reacted to lash glue before, or have very sensitive eyes, book a patch test 48 hours ahead.'],
         ['Can I wear makeup?', 'Yes, except mascara on the extensions. Use oil-free products around the eyes and a water-based remover.'],
-        ['Can I have extensions while pregnant?', 'Many clients do. Hormones can make retention less predictable, so a lash lift or a lighter classic set is often a better choice.'],
+        ['Can I have extensions while pregnant?', 'Please check with your doctor or midwife first. Hormone changes can make extensions shed faster and lifts less predictable, so mention it when you book.'],
       ],
     },
 
