@@ -37,6 +37,7 @@ export const translations = {
       titleEm: 'Prices included.',
       lede: 'Every full set starts with a short consultation and a lash map drawn for your eye shape.',
       book: 'Book',
+      bookName: (name) => `Book ${name}`,
       popular: 'Most booked',
       items: {
         classic: { kicker: 'Extensions', name: 'Classic', desc: 'One extension on each natural lash. Looks like mascara, without the mascara.' },

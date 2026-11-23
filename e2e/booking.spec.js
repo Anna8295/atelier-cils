@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test'
-import { bookingSection, priceRow, startBooking } from './helpers.js'
+import { bookFromPriceList, bookingSection, priceRow, startBooking } from './helpers.js'
 
 test.describe('booking', () => {
   test('a price list row opens booking with that service chosen', async ({ page }) => {
     await page.goto('')
-    await priceRow(page, 'Volume').click()
+    await bookFromPriceList(page, 'Volume')
 
     const booking = bookingSection(page)
     await expect(booking).toBeInViewport()
@@ -14,7 +14,7 @@ test.describe('booking', () => {
 
   test('closed days cannot be picked', async ({ page }) => {
     await page.goto('')
-    await priceRow(page, 'Classic').click()
+    await bookFromPriceList(page, 'Classic')
     const closed = bookingSection(page).locator('.cal-day.closed')
     expect(await closed.count()).toBeGreaterThan(0)
     await expect(closed.first()).toBeDisabled()
@@ -63,5 +63,31 @@ test.describe('booking', () => {
     await expect(page.getByText(/Free up to 24 hours before/)).toBeVisible()
     await page.getByRole('link', { name: 'Full booking terms' }).click()
     await expect(page).toHaveURL(/\/terms$/)
+  })
+
+  test('on a phone, tapping a row shows the photo instead of jumping to booking', async ({ page, isMobile }) => {
+    test.skip(!isMobile, 'touch screens only')
+    await page.goto('')
+    const row = priceRow(page, 'Hybrid')
+    await row.scrollIntoViewIfNeeded()
+    await row.tap()
+
+    const peek = page.locator('#peek-hybrid')
+    await expect(row).toHaveAttribute('aria-expanded', 'true')
+    await expect(peek.getByRole('img', { name: /hybrid lash extensions/ })).toBeVisible()
+    await expect(bookingSection(page)).not.toBeInViewport()
+
+    // tapping again closes it
+    await row.tap()
+    await expect(row).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  test('on a phone, opening another row closes the first', async ({ page, isMobile }) => {
+    test.skip(!isMobile, 'touch screens only')
+    await page.goto('')
+    await priceRow(page, 'Classic').tap()
+    await priceRow(page, 'Volume').tap()
+    await expect(priceRow(page, 'Classic')).toHaveAttribute('aria-expanded', 'false')
+    await expect(priceRow(page, 'Volume')).toHaveAttribute('aria-expanded', 'true')
   })
 })

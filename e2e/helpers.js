@@ -31,9 +31,21 @@ export const bookingSection = (page) => page.locator('#book')
 export const priceRow = (page, service) =>
   page.locator('.menu-row').filter({ has: page.locator('.menu-name', { hasText: new RegExp(`^${service}`) }) })
 
+/**
+ * Books a service from the price list. With a mouse, clicking the row books;
+ * on touch screens the row opens first and its Book button books.
+ */
+export async function bookFromPriceList(page, service) {
+  const row = priceRow(page, service)
+  await row.click()
+  if (await row.evaluate((el) => el.tagName === 'BUTTON')) {
+    await row.locator('xpath=..').getByRole('link', { name: `Book ${service}` }).click()
+  }
+}
+
 /** From the price list: book a service, pick the first free day and time, continue to the details. */
 export async function startBooking(page, service = 'Hybrid') {
-  await priceRow(page, service).click()
+  await bookFromPriceList(page, service)
   const booking = bookingSection(page)
   await expect(booking.getByRole('heading', { name: 'Pick a day' })).toBeVisible()
   await booking.locator('.cal-day:not(:disabled)').first().click()

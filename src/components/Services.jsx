@@ -8,11 +8,26 @@ import SectionHead from './SectionHead.jsx'
 
 const imgFor = (id) => STYLE_BY_ID[id]?.img // brows have no lash photo
 
+const TOUCH = '(hover: none), (pointer: coarse)'
+
+// true on phones and tablets, where there is no hover
+function useTouch() {
+  const [touch, setTouch] = useState(() => window.matchMedia(TOUCH).matches)
+  useEffect(() => {
+    const mq = window.matchMedia(TOUCH)
+    const onChange = () => setTouch(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return touch
+}
+
 /*
-  Price list, like a salon menu. Each row books that service.
-  Desktop: hovering a row shows its lash photo next to the cursor
-  (one floating frame that follows with a little lag and tilt).
-  Phones: a small photo sits at the start of each row instead.
+  Price list, like a salon menu.
+  Mouse: hovering a row shows its lash photo next to the cursor (one
+  floating frame that follows with a little lag and tilt); clicking books.
+  Touch: there is no hover, so tapping a row opens it in place with a large
+  photo and a Book button; tapping again (or another row) closes it.
 */
 export default function Services() {
   const { t } = useLang()
@@ -21,6 +36,17 @@ export default function Services() {
   const ref = useRef(null)
   const floatRef = useRef(null)
   const [active, setActive] = useState(null)
+  const touch = useTouch()
+  const [open, setOpen] = useState(null) // touch: the row that is opened
+
+  // touch: once a row has opened, scroll just enough to show its photo and Book button
+  useEffect(() => {
+    if (!open) return
+    const id = setTimeout(() => {
+      document.getElementById(`peek-${open}`)?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' })
+    }, 380)
+    return () => clearTimeout(id)
+  }, [open])
 
   // rows rise in
   useEffect(() => {
@@ -70,15 +96,26 @@ export default function Services() {
           {SERVICES.map((svc) => {
             const txt = s.items[svc.id]
             const img = imgFor(svc.id)
+            const isOpen = touch && open === svc.id
+            const rowProps = touch
+              ? {
+                  as: 'button',
+                  type: 'button',
+                  'aria-expanded': isOpen,
+                  'aria-controls': `peek-${svc.id}`,
+                  onClick: () => setOpen(isOpen ? null : svc.id),
+                }
+              : {
+                  as: 'a',
+                  href: '#book',
+                  'data-cursor': img ? undefined : 'Book',
+                  onMouseEnter: () => setActive(svc.id),
+                  onClick: () => setService(svc.id),
+                }
+            const { as: Row, ...props } = rowProps
             return (
               <li key={svc.id}>
-                <a
-                  className="menu-row"
-                  href="#book"
-                  data-cursor={img ? undefined : 'Book'}
-                  onMouseEnter={() => setActive(svc.id)}
-                  onClick={() => setService(svc.id)}
-                >
+                <Row className="menu-row" {...props}>
                   <span className="menu-thumb" aria-hidden="true">
                     {img ? (
                       <img src={img} alt="" loading="lazy" />
@@ -86,7 +123,7 @@ export default function Services() {
                       <svg viewBox="0 0 64 80"><path d="M14 44c8-12 28-14 38-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
                     )}
                   </span>
-                  <span className="sr-only">{s.book} </span>
+                  {!touch && <span className="sr-only">{s.book} </span>}
                   <span className="menu-name">
                     {txt.name}
                     {svc.featured && <span className="pill">{s.popular}</span>}
@@ -103,7 +140,26 @@ export default function Services() {
                   <span className="menu-go" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                   </span>
-                </a>
+                </Row>
+                {touch && (
+                  <div className={`menu-peek${isOpen ? ' open' : ''}`} id={`peek-${svc.id}`} inert={!isOpen}>
+                    <div className="menu-peek-inner">
+                      <div className="peek">
+                        {img && (
+                          <div className="peek-img">
+                            <img src={img} alt={t.guide.styles[svc.id]?.alt ?? ''} loading="lazy" />
+                          </div>
+                        )}
+                        <div className="peek-foot">
+                          <span className="peek-meta">{svc.minutes} min · CHF {svc.price}</span>
+                          <a className="btn accent" href="#book" data-cursor="Book" onClick={() => setService(svc.id)}>
+                            {s.bookName(txt.name)}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </li>
             )
           })}
