@@ -78,6 +78,34 @@ export const BUSINESS = {
 
 export const STUDIO_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city}`
 
+// Booking and voucher terms shown on the site and in the Terms page.
+// Placeholders until the owner decides the real rules.
+export const TERMS = {
+  confirmation: '[HOW A BOOKING IS CONFIRMED, e.g. by email within 24 hours]',
+  deposit: '[DEPOSIT AMOUNT AND WHEN IT IS DUE, or "no deposit"]',
+  cancelNotice: '[FREE CANCELLATION NOTICE, e.g. 24 hours]',
+  lateCancel: '[WHAT HAPPENS ON LATE CANCELLATION OR NO-SHOW]',
+  late: '[LATE ARRIVAL RULE]',
+  refill: '[REFILL CONDITIONS]',
+  payment: '[ACCEPTED PAYMENT METHODS]',
+  vat: '[VAT STATUS, e.g. "not subject to VAT" or "prices include 8.1 % VAT"]',
+  complaints: '[COMPLAINT PERIOD AND WHAT IS OFFERED, e.g. free fix within X days]',
+  voucherValidity: '[VOUCHER VALIDITY]',
+  voucherRefund: '[VOUCHER REFUND AND EXCHANGE RULES]',
+  jurisdiction: '[PLACE OF JURISDICTION]',
+}
+
+// Privacy facts that depend on how the site is hosted and run.
+export const PRIVACY = {
+  hosting: '[HOSTING PROVIDER AND COUNTRY]',
+  logRetention: '[SERVER LOG RETENTION PERIOD]',
+  processor: '[BOOKING / EMAIL SERVICE PROVIDER AND COUNTRY]',
+  bookingRetention: '[HOW LONG BOOKING DATA IS KEPT]',
+  voucherRetention: '[HOW LONG VOUCHER RECORDS ARE KEPT]',
+  consultationNotes: '[HOW CONSULTATION / PATCH-TEST NOTES ARE KEPT AND FOR HOW LONG]',
+  lastUpdated: '[LAST UPDATED DATE]',
+}
+
 // Outgoing links. They only contact a third party when a visitor clicks them.
 export const CONTACT = {
   phone: BUSINESS.phone,

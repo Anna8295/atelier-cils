@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLang } from '../../i18n/LanguageContext.jsx'
 import { useBooking } from '../../lib/context.js'
-import { STUDIO_ADDRESS } from '../../lib/data.js'
+import { Link } from 'react-router-dom'
+import { STUDIO_ADDRESS, TERMS } from '../../lib/data.js'
 import { fromISO, icsFile, slotsFor } from '../../lib/availability.js'
 import SectionHead from '../SectionHead.jsx'
 import useBookable from './useBookable.js'
@@ -176,13 +177,14 @@ export default function Booking() {
             <span className="bk-policy-toggle">{b.policyToggle}</span>
           </summary>
           <ul>
-            {b.policies.map(([k, v]) => (
+            {b.policies(TERMS).map(([k, v]) => (
               <li key={k}>
                 <span className="k">{k}</span>
                 <span>{v}</span>
               </li>
             ))}
           </ul>
+          <Link className="bk-terms" to="/terms">{b.terms}</Link>
         </details>
       </div>
     </section>
