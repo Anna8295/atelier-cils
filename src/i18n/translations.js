@@ -53,6 +53,7 @@ export const translations = {
       refill3: '3 weeks',
       refillNew: 'After 4 weeks, a new full set is needed.',
       quizLink: 'Not sure which set? Take the 20-second quiz →',
+      quizLinkShort: 'Not sure? Take the quiz →',
     },
 
     // home: the cards that open the detail pages

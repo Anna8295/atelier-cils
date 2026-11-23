@@ -181,7 +181,10 @@ export default function Services() {
           <span>{s.refillNew}</span>
         </div>
         <div className="section-foot">
-          <Link to="/style" className="btn ghost">{s.quizLink}</Link>
+          <Link to="/style" className="btn ghost">
+            <span className="long-text">{s.quizLink}</span>
+            <span className="short-text">{s.quizLinkShort}</span>
+          </Link>
         </div>
       </div>
     </section>

@@ -618,3 +618,7 @@ button.menu-row .menu-go{transform:rotate(90deg)}
   .menu-row[aria-expanded] .menu-go{display:grid;width:30px;height:30px;justify-self:end;align-self:end}
   .menu-row[aria-expanded] .menu-go svg{width:14px;height:14px}
 }
+
+/* shorter button text on phones */
+.short-text{display:none}
+@media (max-width:700px){.long-text{display:none}.short-text{display:inline}}
