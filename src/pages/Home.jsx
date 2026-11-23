@@ -2,7 +2,6 @@ import Hero from '../components/Hero.jsx'
 import Marquee from '../components/Marquee.jsx'
 import Services from '../components/Services.jsx'
 import Gallery from '../components/Gallery.jsx'
-import Reviews from '../components/Reviews.jsx'
 import GoodToKnow from '../components/GoodToKnow.jsx'
 import Booking from '../components/booking/Booking.jsx'
 
@@ -15,7 +14,6 @@ export default function Home() {
       <Marquee />
       <Services />
       <Gallery />
-      <Reviews />
       <GoodToKnow />
       <Booking />
     </>

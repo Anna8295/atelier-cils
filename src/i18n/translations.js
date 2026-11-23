@@ -162,19 +162,6 @@ export const translations = {
       ],
     },
 
-    reviews: {
-      titleA: 'What clients ',
-      titleEm: 'say.',
-      items: [
-        ['First time ever and I fell asleep. Woke up with the softest hybrid set. Already booked my refill.', 'Camille R.'],
-        ["My eyes are very sensitive and I've reacted to glue before. Léa did a patch test first and I had zero redness.", 'Sarah M.'],
-        ['Volume set lasted almost four weeks with the aftercare tips. Best in Lausanne for me.', 'Inès B.'],
-        ['The lash lift made my straight lashes curl for the first time in my life. No mascara for two months.', 'Julia K.'],
-        ['Calm room, on time, explains everything. I booked my wedding lashes here and they looked perfect in every photo.', 'Noémie T.'],
-        ['Booking through the app took one minute and I got a reminder the day before. Very easy.', 'Lara F.'],
-      ],
-      rating: '★ on Google · 212 reviews',
-    },
 
     visit: {
       titleA: 'What happens, ',
