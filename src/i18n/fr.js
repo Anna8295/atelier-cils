@@ -369,7 +369,8 @@ export default {
     bookingRetention: '24 mois après votre dernière visite, puis elles sont supprimées',
     voucherRetention: '10 ans, car les bons sont des pièces comptables',
     consultationNotes: 'elles sont notées sur une fiche papier conservée sous clé au studio et détruite 24 mois après votre dernière visite',
-    lastUpdated: '23 novembre 2026',
+    ai: 'Cloudflare Workers AI (Cloudflare, Inc., États-Unis)',
+    lastUpdated: '26 novembre 2026',
   },
 
   // assistant de chat (bulle en bas à droite). La plupart des réponses
@@ -378,7 +379,7 @@ export default {
     open: 'Une question ? Demandez ici',
     close: 'Fermer le chat',
     title: 'Assistant du studio',
-    note: 'Des réponses rapides tirées des infos du studio. Pour une question personnelle, Léa répond sur WhatsApp le jour même.',
+    note: 'Des réponses écrites par une IA à partir des infos du studio. Elles peuvent se tromper : merci de ne pas indiquer de données de santé ici. Pour une question personnelle, Léa répond sur WhatsApp le jour même.',
     logLabel: 'Conversation',
     inputLabel: 'Votre question',
     placeholder: 'Prix, allergies, entretien…',

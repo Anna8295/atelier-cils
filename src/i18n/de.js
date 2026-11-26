@@ -369,7 +369,8 @@ export default {
     bookingRetention: '24 Monate nach deinem letzten Besuch, danach werden sie gelöscht',
     voucherRetention: '10 Jahre, da Gutscheine Buchhaltungsbelege sind',
     consultationNotes: 'sie werden auf einer Papierkarte notiert, im Studio verschlossen aufbewahrt und 24 Monate nach deinem letzten Besuch vernichtet',
-    lastUpdated: '23. November 2026',
+    ai: 'Cloudflare Workers AI (Cloudflare, Inc., USA)',
+    lastUpdated: '26. November 2026',
   },
 
   // Chat-Assistent (Blase unten rechts). Die meisten Antworten verwenden die
@@ -378,7 +379,7 @@ export default {
     open: 'Fragen? Hier fragen',
     close: 'Chat schliessen',
     title: 'Studio-Assistent',
-    note: 'Schnelle Antworten aus den Infos des Studios. Bei persönlichen Fragen antwortet Léa am selben Tag auf WhatsApp.',
+    note: 'Antworten von einer KI, aus den Infos des Studios. Sie können falsch sein, gib hier also bitte keine Gesundheitsdaten an. Bei persönlichen Fragen antwortet Léa am selben Tag auf WhatsApp.',
     logLabel: 'Unterhaltung',
     inputLabel: 'Deine Frage',
     placeholder: 'Preise, Allergien, Pflege…',

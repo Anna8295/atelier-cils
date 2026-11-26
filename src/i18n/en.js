@@ -378,7 +378,8 @@ export default {
     bookingRetention: '24 months after your last visit, then it is deleted',
     voucherRetention: '10 years, because vouchers are accounting records',
     consultationNotes: 'they are written on a paper card kept locked at the studio and destroyed 24 months after your last visit',
-    lastUpdated: '23 November 2026',
+    ai: 'Cloudflare Workers AI (Cloudflare, Inc., USA)',
+    lastUpdated: '26 November 2026',
   },
 
   // chat assistant (bubble bottom right). Most answers reuse the text above
@@ -387,7 +388,7 @@ export default {
     open: 'Questions? Ask here',
     close: 'Close the chat',
     title: 'Studio assistant',
-    note: "Quick answers from the studio's own info. For anything personal, Léa replies on WhatsApp the same day.",
+    note: "AI answers from the studio's own info. They can be wrong, so please don't share health details here. For anything personal, Léa replies on WhatsApp the same day.",
     logLabel: 'Conversation',
     inputLabel: 'Your question',
     placeholder: 'Prices, allergies, aftercare…',

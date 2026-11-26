@@ -6,7 +6,7 @@
 // Messages are stored as ids ({ topic, service }), not as text, and are turned
 // into text when shown. Switching the language re-translates the whole chat.
 
-import { BUSINESS, CONTACT, HOURS, REFILLS, SERVICES, STUDIO_ADDRESS, VOUCHER_AMOUNTS } from './data.js'
+import { BUSINESS, CONTACT, HOURS, REFILLS, SERVICES, STUDIO_ADDRESS, VOUCHER_AMOUNTS } from './studio.js'
 import { KEYWORDS, SERVICE_WORDS } from './assistantKeywords.js'
 
 // lower case, no accents, only letters and digits, padded with spaces
@@ -53,6 +53,28 @@ export const SUGGESTED = ['price', 'quiz', 'allergy', 'hours']
 // FAQ answers, by their place in t.faq.items
 const FAQ = { hurt: 0, last: 1, damage: 2, allergy: 3, makeup: 4, pregnant: 5 }
 
+// AI text → blocks: paragraphs split at blank lines, "- " lines as a list
+export function textBlocks(text) {
+  const blocks = []
+  for (const chunk of text.split(/\n\s*\n/)) {
+    const rows = chunk.split('\n').map((l) => l.trim()).filter(Boolean)
+    let para = []
+    for (const row of rows) {
+      const item = row.match(/^(?:[-•*]|\d+[.)])\s+(.*)/)
+      if (item) {
+        if (para.length) blocks.push(para.join(' '))
+        para = []
+        const last = blocks.at(-1)
+        if (Array.isArray(last)) last.push(item[1])
+        else blocks.push([item[1]])
+      }
+      else para.push(row)
+    }
+    if (para.length) blocks.push(para.join(' '))
+  }
+  return blocks
+}
+
 // Monday first; HOURS uses Date#getDay() (0 = Sunday)
 const WEEK = [1, 2, 3, 4, 5, 6, 0]
 const clock = (h) => `${String(h).padStart(2, '0')}:00`
@@ -67,10 +89,14 @@ const clock = (h) => `${String(h).padStart(2, '0')}:00`
  *     { kind: 'ask', topic, label }      → a suggested question
  *     { kind: 'pick', q, v, label }      → an answer to quiz question q
  */
-export function buildReply({ topic, service, q, result }, t) {
+export function buildReply({ topic, service, q, result, ai, book: aiBook }, t) {
   const a = t.assistant
-  const name = (id) => t.services.items[id].name
+  const name = (id) => t.services.items[id]?.name ?? t.booking[id]
   const book = (id) => ({ kind: 'book', service: id ?? null, label: id ? t.services.bookName(name(id)) : t.nav.book })
+
+  // an answer written by the AI: plain text, "- " lines become a list
+  if (ai) return { blocks: textBlocks(ai), actions: aiBook ? [book(aiBook)] : [] }
+
   const page = (to, key) => ({ kind: 'page', to, label: a.links[key] })
   const whatsapp = { kind: 'ext', href: CONTACT.whatsapp, label: a.links.whatsapp }
   const asks = SUGGESTED.map((id) => ({ kind: 'ask', topic: id, label: a.suggestions[id] }))

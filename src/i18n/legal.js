@@ -25,6 +25,7 @@ const en = (T, P, Z) => ({
             'This website sets no cookies and uses no analytics, advertising or tracking tools.',
             'Fonts, images and videos are served from this website, not from Google or other third parties.',
             'We only receive personal data when you send a booking or gift voucher request, and we use it only for that request.',
+            'Questions you type into the chat assistant are sent to an AI service to write the answer. They are not stored.',
           ],
         }],
       },
@@ -58,6 +59,13 @@ const en = (T, P, Z) => ({
         body: [
           `Booking and voucher requests are processed and emailed using ${P.processor}. Our hosting provider is ${P.hosting}.`,
           'If a provider stores data outside Switzerland or the EU/EEA in a country without adequate data protection, we use recognised safeguards such as the EU Standard Contractual Clauses.',
+        ],
+      },
+      {
+        h: 'Chat assistant',
+        body: [
+          'The suggested questions and the quiz in the chat are answered inside your browser. When you type your own question, it is sent together with the earlier messages of the conversation to ' + P.ai + ', which writes the answer from the information on this website. Your IP address is used to limit how many questions can be sent per minute.',
+          'We do not store the conversation, and it is gone when you reload the page. Please do not type health details or other sensitive information: for personal questions, write to Léa directly. The legal basis is our legitimate interest in answering your questions.',
         ],
       },
       { h: 'Links to other services', body: ['The site links to WhatsApp, Instagram and Google Maps. Nothing is sent to these services when you visit our site. They only receive data if you click a link and open them, and then their own privacy policies apply (WhatsApp and Instagram: Meta; Google Maps: Google). These companies may process data in the USA.'] },
@@ -122,6 +130,7 @@ const fr = (T, P, Z) => ({
             'Ce site ne dépose aucun cookie et n’utilise aucun outil d’analyse, de publicité ou de suivi.',
             'Les polices, images et vidéos sont servies par ce site, pas par Google ni par d’autres tiers.',
             'Nous ne recevons des données personnelles que si vous envoyez une demande de réservation ou de bon cadeau, et nous ne les utilisons que pour cette demande.',
+            'Les questions que vous tapez dans l’assistant de chat sont envoyées à un service d’IA pour rédiger la réponse. Elles ne sont pas conservées.',
           ],
         }],
       },
@@ -155,6 +164,13 @@ const fr = (T, P, Z) => ({
         body: [
           `Les demandes de réservation et de bons sont traitées et envoyées par e-mail via ${P.processor}. Notre hébergeur est ${P.hosting}.`,
           'Si un prestataire conserve des données hors de Suisse ou de l’UE/EEE dans un pays sans protection adéquate, nous utilisons des garanties reconnues comme les clauses contractuelles types de l’UE.',
+        ],
+      },
+      {
+        h: 'Assistant de chat',
+        body: [
+          'Les questions suggérées et le quiz du chat sont traités dans votre navigateur. Si vous tapez votre propre question, elle est envoyée avec les messages précédents de la conversation à ' + P.ai + ', qui rédige la réponse à partir des informations de ce site. Votre adresse IP sert à limiter le nombre de questions envoyées par minute.',
+          'Nous ne conservons pas la conversation, qui disparaît quand vous rechargez la page. Merci de ne pas indiquer de données de santé ou d’autres informations sensibles : pour une question personnelle, écrivez directement à Léa. La base juridique est notre intérêt légitime à répondre à vos questions.',
         ],
       },
       { h: 'Liens vers d’autres services', body: ['Le site renvoie vers WhatsApp, Instagram et Google Maps. Rien n’est envoyé à ces services lorsque vous visitez notre site. Ils ne reçoivent des données que si vous cliquez sur un lien et les ouvrez ; leurs propres politiques de confidentialité s’appliquent alors (WhatsApp et Instagram : Meta ; Google Maps : Google). Ces entreprises peuvent traiter des données aux États-Unis.'] },
@@ -219,6 +235,7 @@ const de = (T, P, Z) => ({
             'Diese Website setzt keine Cookies und verwendet keine Analyse-, Werbe- oder Tracking-Tools.',
             'Schriften, Bilder und Videos werden von dieser Website geladen, nicht von Google oder anderen Dritten.',
             'Personendaten erhalten wir nur, wenn du eine Buchungs- oder Gutscheinanfrage sendest, und wir verwenden sie nur dafür.',
+            'Fragen, die du im Chat-Assistenten eintippst, werden an einen KI-Dienst gesendet, der die Antwort schreibt. Sie werden nicht gespeichert.',
           ],
         }],
       },
@@ -252,6 +269,13 @@ const de = (T, P, Z) => ({
         body: [
           `Buchungs- und Gutscheinanfragen werden über ${P.processor} verarbeitet und per E-Mail versendet. Unser Hoster ist ${P.hosting}.`,
           'Speichert ein Dienstleister Daten ausserhalb der Schweiz oder der EU/des EWR in einem Land ohne angemessenen Datenschutz, verwenden wir anerkannte Garantien wie die EU-Standardvertragsklauseln.',
+        ],
+      },
+      {
+        h: 'Chat-Assistent',
+        body: [
+          'Die vorgeschlagenen Fragen und das Quiz im Chat werden in deinem Browser beantwortet. Wenn du eine eigene Frage eintippst, wird sie zusammen mit den bisherigen Nachrichten der Unterhaltung an ' + P.ai + ' gesendet, der die Antwort aus den Informationen dieser Website schreibt. Deine IP-Adresse wird verwendet, um die Zahl der Fragen pro Minute zu begrenzen.',
+          'Wir speichern die Unterhaltung nicht, sie ist weg, sobald du die Seite neu lädst. Gib bitte keine Gesundheitsdaten oder andere sensible Angaben ein: Für persönliche Fragen schreib Léa direkt. Rechtsgrundlage ist unser berechtigtes Interesse, deine Fragen zu beantworten.',
         ],
       },
       { h: 'Links zu anderen Diensten', body: ['Die Website verlinkt auf WhatsApp, Instagram und Google Maps. Beim Besuch unserer Website wird nichts an diese Dienste gesendet. Sie erhalten nur Daten, wenn du einen Link anklickst und sie öffnest; dann gelten ihre eigenen Datenschutzerklärungen (WhatsApp und Instagram: Meta; Google Maps: Google). Diese Unternehmen können Daten in den USA bearbeiten.'] },

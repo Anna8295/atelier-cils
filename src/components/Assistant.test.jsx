@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithProviders } from '../test/render.jsx'
@@ -69,5 +69,61 @@ describe('chat assistant', () => {
 
     await user.click(bubble)
     expect(within(log()).getByText('Where are you?')).toBeInTheDocument()
+  })
+
+  describe('with the AI switched on', () => {
+    afterEach(() => {
+      vi.unstubAllEnvs()
+      vi.unstubAllGlobals()
+    })
+
+    const aiAnswers = (status, body) => {
+      vi.stubEnv('VITE_ASSISTANT_URL', 'https://assistant.example')
+      const fetch = vi.fn(async () => new Response(JSON.stringify(body), { status }))
+      vi.stubGlobal('fetch', fetch)
+      return fetch
+    }
+
+    it('shows the AI answer with a booking button', async () => {
+      const fetch = aiAnswers(200, { reply: 'For a soft look:\n- Classic\n- Hybrid', book: 'hybrid' })
+      const user = userEvent.setup()
+      await openChat(user)
+      await user.type(screen.getByLabelText('Your question'), 'I want something soft{Enter}')
+
+      expect(await within(log()).findByText('For a soft look:')).toBeInTheDocument()
+      expect(within(log()).getByText('Hybrid')).toBeInTheDocument()
+      await user.click(within(log()).getByRole('link', { name: 'Book Hybrid' }))
+      expect(screen.getByLabelText('picked service')).toHaveTextContent('hybrid')
+
+      const [url, init] = fetch.mock.calls[0]
+      expect(url).toBe('https://assistant.example/chat')
+      expect(JSON.parse(init.body)).toEqual({ lang: 'en', messages: [{ role: 'user', content: 'I want something soft' }] })
+    })
+
+    it('sends the earlier messages, so follow-up questions make sense', async () => {
+      const fetch = aiAnswers(200, { reply: 'It costs CHF 150.', book: null })
+      const user = userEvent.setup()
+      await openChat(user)
+      await user.click(screen.getByRole('button', { name: 'When are you open?' }))
+      await user.type(screen.getByLabelText('Your question'), 'and on Sunday?{Enter}')
+      await within(log()).findByText('It costs CHF 150.')
+
+      const { messages } = JSON.parse(fetch.mock.calls[0][1].body)
+      expect(messages.map((m) => m.role)).toEqual(['user', 'assistant', 'user'])
+      expect(messages[0].content).toBe('When are you open?')
+      expect(messages[1].content).toContain('Sun · Closed')
+    })
+
+    it('falls back to the keyword answer, and stops asking the AI once the free quota is used up', async () => {
+      const fetch = aiAnswers(503, { error: 'quota' })
+      const user = userEvent.setup()
+      await openChat(user)
+      await user.type(screen.getByLabelText('Your question'), 'Does it hurt?{Enter}')
+      expect(await within(log()).findByText(/1 mm from the skin/)).toBeInTheDocument()
+
+      await user.type(screen.getByLabelText('Your question'), 'Where are you?{Enter}')
+      expect(await within(log()).findByText(/Rue de Bourg 12/)).toBeInTheDocument()
+      expect(fetch).toHaveBeenCalledTimes(1)
+    })
   })
 })

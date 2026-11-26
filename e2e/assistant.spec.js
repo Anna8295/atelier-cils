@@ -5,7 +5,15 @@ import { bookingSection, expectNoHorizontalScroll, trackErrors } from './helpers
 const bubble = (page) => page.getByRole('button', { name: 'Questions? Ask here' })
 const chat = (page) => page.getByRole('dialog', { name: 'Studio assistant' })
 
+// The tests never reach the real AI (it would use up the free allowance):
+// by default it is unreachable, so the chat falls back to its keyword answers.
+const AI = /\/chat$/
+
 test.describe('chat assistant', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.route(AI, (route) => route.abort())
+  })
+
   test('waits for the visitor to scroll past the hero on the home page', async ({ page }) => {
     await page.goto('')
     await expect(bubble(page)).toBeHidden()
@@ -33,7 +41,8 @@ test.describe('chat assistant', () => {
     await chat(page).getByRole('link', { name: 'Book Lash lift' }).click()
     await expect(chat(page)).toBeHidden()
     await expect(bookingSection(page).getByRole('heading', { name: 'Pick a day' })).toBeVisible()
-    expect(errors).toEqual([])
+    // the blocked AI request shows up as a failed request; nothing else may fail
+    expect(errors.filter((e) => !/\/chat\b|Failed to load resource/.test(e))).toEqual([])
   })
 
   test('passes the accessibility checks when open', async ({ page }) => {
@@ -43,5 +52,15 @@ test.describe('chat assistant', () => {
     await expect(chat(page).getByText('Opening hours:')).toBeVisible()
     const results = await new AxeBuilder({ page }).include('.ask').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze()
     expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(' | ')}`)).toEqual([])
+  })
+
+  test('shows an AI answer when the AI replies', async ({ page }) => {
+    await page.route(AI, (route) => route.fulfill({ json: { reply: 'Hybrid gives a soft, fuller look.', book: 'hybrid' }, headers: { 'Access-Control-Allow-Origin': '*' } }))
+    await page.goto('visit')
+    await bubble(page).click()
+    await page.getByLabel('Your question').fill('Something soft but noticeable?')
+    await page.getByLabel('Your question').press('Enter')
+    await expect(chat(page).getByText('Hybrid gives a soft, fuller look.')).toBeVisible()
+    await expect(chat(page).getByRole('link', { name: 'Book Hybrid' })).toBeVisible()
   })
 })

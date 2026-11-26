@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { useBooking } from '../lib/context.js'
+import { askAi, aiUrl } from '../lib/askAi.js'
 import { buildReply, understand } from '../lib/assistant.js'
 import { prefersReducedMotion } from '../lib/motion.js'
 import { suggest } from '../lib/quiz.js'
@@ -9,10 +10,13 @@ import { suggest } from '../lib/quiz.js'
 const QUIZ = ['look', 'nat', 'masc'] // ids of t.guide.quiz.questions, in order
 
 // Messages are kept as ids and turned into text on screen (see src/lib/assistant.js):
-//   bot:  { from: 'bot', topic, service?, q?, result? }
+//   bot:  { from: 'bot', topic, service?, q?, result? } or { from: 'bot', ai: text, book? }
 //   you:  { from: 'you', text } or { from: 'you', ask: topic } or { from: 'you', pick: { q, v } }
+// Typed questions go to the AI (when VITE_ASSISTANT_URL is set); the suggested
+// questions and the quiz are answered here, instantly and without using the
+// free AI allowance. If the AI fails, the keyword answer is shown instead.
 export default function AssistantPanel({ open, onClose }) {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const { setService } = useBooking()
   const a = t.assistant
   const [messages, setMessages] = useState([{ id: 0, from: 'bot', topic: 'hello' }])
@@ -21,6 +25,7 @@ export default function AssistantPanel({ open, onClose }) {
   const nextId = useRef(1)
   const quiz = useRef({})
   const timer = useRef(null)
+  const aiOff = useRef(false) // today's free AI is used up: keyword answers only
   const log = useRef(null)
   const input = useRef(null)
 
@@ -64,8 +69,25 @@ export default function AssistantPanel({ open, onClose }) {
     setText('')
     add({ from: 'you', text: question })
     const { topic, service } = understand(question)
-    answerTopic(topic, service)
+    if (!aiUrl() || aiOff.current) return answerTopic(topic, service)
+
+    setTyping(true)
+    askAi([...history(), { role: 'user', content: question }], lang)
+      .then(({ reply, book }) => add({ from: 'bot', ai: reply, book }))
+      .catch((error) => {
+        if (error.code === 'quota') aiOff.current = true
+        if (topic === 'quiz') quiz.current = {}
+        add(topic === 'quiz' ? { from: 'bot', topic, q: 0 } : { from: 'bot', topic, service })
+      })
+      .finally(() => setTyping(false))
   }
+
+  // the conversation as text, so the AI understands follow-up questions
+  const history = () =>
+    messages.slice(1).map((m) => ({
+      role: m.from === 'you' ? 'user' : 'assistant',
+      content: m.from === 'you' ? youText(m) : buildReply(m, t).blocks.flat().join('\n'),
+    }))
 
   const ask = (topic) => {
     add({ from: 'you', ask: topic })

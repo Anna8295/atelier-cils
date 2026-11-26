@@ -9,7 +9,7 @@ export default mergeConfig(
     test: {
       environment: 'jsdom',
       setupFiles: ['src/test/setup.js'],
-      include: ['src/**/*.test.{js,jsx}'],
+      include: ['src/**/*.test.{js,jsx}', 'worker/src/**/*.test.js'],
       restoreMocks: true,
       coverage: {
         provider: 'v8',

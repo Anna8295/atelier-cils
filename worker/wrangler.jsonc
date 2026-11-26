@@ -1,0 +1,15 @@
+// Cloudflare Worker behind the chat assistant: it adds the studio's facts and
+// rules (src/lib/knowledge.js) to the visitor's question and asks Workers AI.
+// Deploy from this folder with: npx wrangler deploy
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "atelier-cils-assistant",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "ai": { "binding": "AI" },
+  // at most 10 questions per minute from one visitor (IP address)
+  "ratelimits": [
+    { "name": "LIMITER", "namespace_id": "1001", "simple": { "limit": 10, "period": 60 } }
+  ],
+  "observability": { "enabled": false }
+}
