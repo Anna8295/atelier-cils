@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx'
 import Cursor from './components/Cursor.jsx'
 import ToastProvider from './components/Toast.jsx'
 import RouteEffects from './components/RouteEffects.jsx'
+import Assistant from './components/Assistant.jsx'
 import Home from './pages/Home.jsx'
 import StylePage from './pages/StylePage.jsx'
 import VisitPage from './pages/VisitPage.jsx'
@@ -53,6 +54,7 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            <Assistant />
             <RouteEffects />
           </BookingContext.Provider>
         </ToastProvider>

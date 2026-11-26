@@ -2,17 +2,8 @@ import { useState } from 'react'
 import { useLang } from '../i18n/LanguageContext.jsx'
 import { useBooking } from '../lib/context.js'
 import { STYLES, STYLE_BY_ID } from '../lib/data.js'
+import { suggest } from '../lib/quiz.js'
 import SectionHead from './SectionHead.jsx'
-
-// look 0–2, natural lashes 0–2, mascara 0–2 → suggested style id
-function suggest({ look, nat, masc }) {
-  if (look === 0 && nat >= 1) return 'lift'
-  const score = look * 2 + masc
-  let r = score <= 1 ? 'classic' : score <= 3 ? 'hybrid' : score <= 5 ? 'volume' : 'mega'
-  if (nat === 0 && r === 'mega') r = 'volume' // fine lashes can't carry mega fans
-  if (nat === 0 && r === 'classic') r = 'hybrid'
-  return r
-}
 
 export default function StyleGuide() {
   const { t } = useLang()

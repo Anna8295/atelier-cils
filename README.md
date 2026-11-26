@@ -14,6 +14,7 @@ Website for a made-up lash studio in Lausanne. It's a portfolio project, not a r
 - **Prices:** a salon-style list. Hover a row to see that style's photo.
 - **Which lashes suit me?** Compare every style on the same eye, or take a 3-question quiz.
 - **Booking:** pick a service, a free day and time, and your details. The times are example data; nothing is sent.
+- **Chat assistant:** a bubble that answers questions about prices, allergies, aftercare, hours and more, runs the style quiz and opens booking with the suggested set. It answers only from the site's own text, in all three languages, and needs no server.
 - **More pages:** first visit, aftercare with a refill calculator, about, gift vouchers, privacy, terms and imprint.
 - **Three languages:** English, French and German. The site opens in the browser's language.
 
@@ -41,4 +42,5 @@ Pushing to `main` runs all the tests and, only if they pass, deploys to GitHub P
 
 - **Text:** `src/i18n/en.js`, `fr.js`, `de.js` (same keys in each)
 - **Prices, hours, contact details:** `src/lib/data.js`
+- **What the chat assistant understands:** `src/lib/assistantKeywords.js`
 - **Colours and fonts:** top of `src/index.css`
